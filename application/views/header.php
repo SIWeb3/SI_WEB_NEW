@@ -33,11 +33,12 @@
               <a class="nav-link js-scroll-trigger" href="#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Login</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Alamat</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" a href="#services">Login</a>
             </li>
+
           </ul>
         </div>
       </div>

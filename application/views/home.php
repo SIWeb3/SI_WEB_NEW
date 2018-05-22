@@ -16,4 +16,15 @@
       </div>
     </section>
 
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Alamat</h2>
+            <p class="lead">Gedung Jurusan Teknologi Informasi, Politeknik Negeri Jember</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     
