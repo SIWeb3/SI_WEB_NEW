@@ -11,7 +11,7 @@
               <div class="card-body p-4">
                 <div class="form-group">
                   <label for="username">Username (NIM)</label>
-                  <input type="text" name="username" class="form-control" required="">
+                  <input type="text" name="nim" class="form-control" required="">
                 </div>
 
                 <div class="form-group">
