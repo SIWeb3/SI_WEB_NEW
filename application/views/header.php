@@ -36,7 +36,7 @@
               <a class="nav-link js-scroll-trigger" href="#contact">Alamat</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" a href="#services">Login</a>
+              <a class="nav-link js-scroll-trigger"<a href="<?php echo base_url() ?>index.php/Welcome/login"?>Login</a>
             </li>
 
           </ul>
