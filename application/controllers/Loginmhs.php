@@ -50,7 +50,7 @@ class Loginmhs extends CI_Controller {
 			);
 
 			$this->session->set_userdata($data_session);
-			redirect(base_url());
+			redirect(base_url('welcomemhs'));
 
 		} else {
 			$this->session->set_flashdata('error', 'Username atau Password Salah');
