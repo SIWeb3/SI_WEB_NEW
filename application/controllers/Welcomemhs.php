@@ -6,7 +6,7 @@ class Welcomemhs extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('headermhs');
-		$this->load->view('home');
+		$this->load->view('pengajuanjudul');
 		$this->load->view('footer');
 	}
 
