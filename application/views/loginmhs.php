@@ -11,7 +11,7 @@
               <div class="card-body p-4">
                 <div class="form-group">
 
-                  <?php if (isset($error)){ ?>
+                  <?php if(isset($error)){ ?>
                     <div class="alert alert-danger alert-dismissible">
                       <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                       <?php echo $error; ?>
