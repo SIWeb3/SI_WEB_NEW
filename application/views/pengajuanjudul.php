@@ -34,7 +34,14 @@
 
                 <div class="form-group">
                   <label for="deskripsi">Deskripsi</label>
-                  <input type="textarea" name="judul" class="form-control" required="">
+                  <textarea name="judul" class="form-control" required=""></textarea> 
+                </div>
+
+                <div class="form-group">
+                  <label for="dospem">Usulan Dosen Pembimbing</label>
+                  <select name="dospem" class="form-control" required="">
+                    <option value="">Ratih Ayuninghemi</option>
+                  </select>
                 </div>
 
 
