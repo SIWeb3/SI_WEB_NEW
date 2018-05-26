@@ -11,6 +11,12 @@ class Loginmhs extends CI_Controller {
 
 	public function index()
 	{
+
+		$data = array(
+			'success' =>$this->session->flashdata('success'),
+			'error'=>$this->session->flashdata('error'),
+		);
+
 		$this->load->view('header');
 		$this->load->view('loginmhs');
 		$this->load->view('footer');

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Mei 2018 pada 03.19
--- Versi Server: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: May 26, 2018 at 06:08 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `si_sempro`
+-- Database: `project_web`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ambil judul dosen`
+-- Table structure for table `ambil judul dosen`
 --
 
 CREATE TABLE `ambil judul dosen` (
@@ -39,7 +37,7 @@ CREATE TABLE `ambil judul dosen` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data dosen`
+-- Table structure for table `data dosen`
 --
 
 CREATE TABLE `data dosen` (
@@ -52,20 +50,28 @@ CREATE TABLE `data dosen` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data mahasiswa`
+-- Table structure for table `data_mahasiswa`
 --
 
-CREATE TABLE `data mahasiswa` (
-  `NIM` varchar(9) NOT NULL,
-  `Nama` char(100) NOT NULL,
-  `Prodi` char(3) NOT NULL,
-  `Golongan` char(1) NOT NULL
+CREATE TABLE `data_mahasiswa` (
+  `nim` varchar(10) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `prodi` varchar(3) NOT NULL,
+  `golongan` varchar(2) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `data_mahasiswa`
+--
+
+INSERT INTO `data_mahasiswa` (`nim`, `nama`, `prodi`, `golongan`, `password`) VALUES
+('e31160395', 'Dinda Ayu Pujiningtiyas', 'MIF', 'A', 'dinda');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hak akses`
+-- Table structure for table `hak akses`
 --
 
 CREATE TABLE `hak akses` (
@@ -76,7 +82,7 @@ CREATE TABLE `hak akses` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penentuan dospem`
+-- Table structure for table `penentuan dospem`
 --
 
 CREATE TABLE `penentuan dospem` (
@@ -88,7 +94,7 @@ CREATE TABLE `penentuan dospem` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `review ta`
+-- Table structure for table `review ta`
 --
 
 CREATE TABLE `review ta` (
@@ -102,7 +108,7 @@ CREATE TABLE `review ta` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `usulan final`
+-- Table structure for table `usulan final`
 --
 
 CREATE TABLE `usulan final` (
@@ -118,7 +124,7 @@ CREATE TABLE `usulan final` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `usulan judul dosen`
+-- Table structure for table `usulan judul dosen`
 --
 
 CREATE TABLE `usulan judul dosen` (
@@ -132,7 +138,7 @@ CREATE TABLE `usulan judul dosen` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `usulan ta mhs`
+-- Table structure for table `usulan ta mhs`
 --
 
 CREATE TABLE `usulan ta mhs` (
@@ -165,10 +171,10 @@ ALTER TABLE `data dosen`
   ADD KEY `Hak Akses` (`Hak Akses`);
 
 --
--- Indexes for table `data mahasiswa`
+-- Indexes for table `data_mahasiswa`
 --
-ALTER TABLE `data mahasiswa`
-  ADD PRIMARY KEY (`NIM`);
+ALTER TABLE `data_mahasiswa`
+  ADD PRIMARY KEY (`nim`);
 
 --
 -- Indexes for table `hak akses`
@@ -256,15 +262,14 @@ ALTER TABLE `usulan judul dosen`
 ALTER TABLE `usulan ta mhs`
   MODIFY `Id_usulan` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `data dosen`
+-- Constraints for table `data dosen`
 --
 ALTER TABLE `data dosen`
   ADD CONSTRAINT `data dosen_ibfk_1` FOREIGN KEY (`Hak Akses`) REFERENCES `hak akses` (`Id_HA`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
