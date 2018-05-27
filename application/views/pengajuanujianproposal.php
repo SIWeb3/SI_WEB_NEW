@@ -9,14 +9,6 @@
               </div>
 
               <div class="card-body p-4">
-                <div class="form-group">
-
-
-                  <label for="tanggal">Tanggal Input</label>
-                  <input type="date" name="tglinput" class="form-control" required="">
-                </div>
-
-
                  <div class="form-group">
                   <label for="nim">NIM</label>
                   <input type="text" name="nim" class="form-control" required="">

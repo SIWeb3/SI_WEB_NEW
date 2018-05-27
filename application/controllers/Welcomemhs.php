@@ -11,8 +11,6 @@ class Welcomemhs extends CI_Controller {
 	}
 
 	function formusulanjudul(){
-		$prodi=$this->loginmhs_model->get_dosen();
-
 		$this->load->view('headermhs');
 		$this->load->view('pengajuanjudul');
 		$this->load->view('footer');
