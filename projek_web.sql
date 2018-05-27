@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 26 Mei 2018 pada 06.37
--- Versi Server: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: 27 Mei 2018 pada 05.41
+-- Versi Server: 10.1.28-MariaDB
+-- PHP Version: 5.6.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `project_web`
+-- Database: `projek_web`
 --
 
 -- --------------------------------------------------------
@@ -46,6 +48,13 @@ CREATE TABLE `data_dosen` (
   `Hak_Akses` int(1) NOT NULL,
   `Prodi` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `data_dosen`
+--
+
+INSERT INTO `data_dosen` (`NIP`, `Nama_Dosen`, `Hak_Akses`, `Prodi`) VALUES
+('12345', 'coba', 1, 'TKK');
 
 -- --------------------------------------------------------
 
@@ -231,45 +240,43 @@ ALTER TABLE `usulan_ta_mhs`
 --
 ALTER TABLE `ambil_judul_dosen`
   MODIFY `Id_ambil` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `hak_akses`
 --
 ALTER TABLE `hak_akses`
   MODIFY `Id_HA` int(1) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `penentuan_dospem`
 --
 ALTER TABLE `penentuan_dospem`
   MODIFY `Id_penentuan_dospem` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `review_ta`
 --
 ALTER TABLE `review_ta`
   MODIFY `Id_review_mhs` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `usulan_final`
 --
 ALTER TABLE `usulan_final`
   MODIFY `Id_usulan_final` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `usulan_judul_dosen`
 --
 ALTER TABLE `usulan_judul_dosen`
   MODIFY `Id_judul_dosen` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `usulan_ta_mhs`
 --
 ALTER TABLE `usulan_ta_mhs`
   MODIFY `Id_usulan` int(11) NOT NULL AUTO_INCREMENT;
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `data_dosen`
---
-ALTER TABLE `data_dosen`
-  ADD CONSTRAINT `data_dosen_ibfk_1` FOREIGN KEY (`Hak_Akses`) REFERENCES `hak_akses` (`Id_HA`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
