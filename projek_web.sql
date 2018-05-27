@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Mei 2018 pada 05.56
+-- Generation Time: 27 Mei 2018 pada 06.02
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -44,17 +44,19 @@ CREATE TABLE `ambil_judul_dosen` (
 
 CREATE TABLE `data_dosen` (
   `nip` varchar(30) NOT NULL,
+  `nik` varchar(50) NOT NULL,
   `nama_dosen` char(100) NOT NULL,
   `id_hak` int(1) NOT NULL,
-  `prodi` char(3) NOT NULL
+  `prodi` char(3) NOT NULL,
+  `no_hp` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `data_dosen`
 --
 
-INSERT INTO `data_dosen` (`nip`, `nama_dosen`, `id_hak`, `prodi`) VALUES
-('123455', 'coba aja', 1, 'TKK');
+INSERT INTO `data_dosen` (`nip`, `nik`, `nama_dosen`, `id_hak`, `prodi`, `no_hp`) VALUES
+('123455', '', 'coba aja', 1, 'TKK', '');
 
 -- --------------------------------------------------------
 
