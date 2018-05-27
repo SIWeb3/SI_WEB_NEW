@@ -62,9 +62,31 @@ class Loginmhs extends CI_Controller {
 	function register(){
 		$this->cek();
 		$data = array('error' => $this->session->flashdata('error'), );
-		$this->load->view('header');
+		$this->load->view('header', $data);
 		$this->load->view('register', $data);
-		$this->load->view('footer');
+		$this->load->view('footer', $data);
+	}
+
+	function daftar(){
+		$cek = $this->loginmhs_model->cek_login('data_mahasiswa', array('nim' =>$this->input->post('nim')))->num_rows();
+
+		if($cek > 0){
+			$this->session->set_flashdata('error', 'username telah terdaftar sebelumnya');
+			redirect(base_url('loginmhs/register'));
+		} else {
+			$data = array(
+				'nim'=> $this->input->post('nim'),
+				'nama'=> $this->input->post('nama'),
+				'prodi'=> $this->input->post('prodi'),
+				'golongan'=> $this->input->post('golongan'),
+				'password'=> $this->input->post('password'),
+			);
+
+			$this->loginmhs_model->simpan('data_mahasiswa', $data);
+
+			$this->session->set_flashdata('success', 'pendaftaran berhasil, silahkan login');
+			redirect(base_url('loginmhs'));
+		}
 	}
 
 	function logout(){

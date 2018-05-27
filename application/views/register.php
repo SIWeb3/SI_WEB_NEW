@@ -10,7 +10,13 @@
 
               <div class="card-body p-4">
                 <div class="form-group">
-                  <label for="name">NIM</label>
+                  <?php if(isset($error)){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                      <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <?php echo $error; ?>
+                    </div>
+                  <?php } ?>
+                  <label for="nim">NIM</label>
                   <input type="text" name="nim" class="form-control" required="">
                 </div>
                 <div class="form-group">
@@ -34,6 +40,11 @@
                      <option value="d">D</option>
                   </select>
               </div>
+
+               <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" class="form-control" required="">
+                </div>
 
               <div class="card-footer text-right">
                 <button type="submit" class="btn btn-primary">Daftar</button>
