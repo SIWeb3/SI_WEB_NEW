@@ -29,8 +29,9 @@
                   <label for="level">Masuk Sebagai</label><br>
                   <select name="hak_akses">      
                     <option value="1">Dosen</option>
-                    <option value="3">Koordinator TA</option>
                     <option value="2">Reviewer</option>
+                    <option value="3">Koordinator TA</option>
+                    
                   </select>
                 </div>
 

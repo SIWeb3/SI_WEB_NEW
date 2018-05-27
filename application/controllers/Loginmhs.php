@@ -14,6 +14,7 @@ class Loginmhs extends CI_Controller {
 		$data = array(
 			'success' => $this->session->flashdata('success'),
 			'error' => $this->session->flashdata('error'),
+			'dosen'=>$this->loginmhs_model->get_dosen(),
 		);
 
 		$this->load->view('header');

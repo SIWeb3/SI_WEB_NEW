@@ -23,18 +23,12 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Sistem Informasi Pengajuan Judul Tugas Akhir</a>
+        <a class="navbar-brand js-scroll-trigger" href="<?php echo base_url()?>">Sistem Informasi Pengajuan Judul Tugas Akhir</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Alamat</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" <a href="<?php echo base_url('pilihan')?>">Login</a>
             </li>

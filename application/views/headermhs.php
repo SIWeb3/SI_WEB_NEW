@@ -33,7 +33,7 @@
               <a class="nav-link js-scroll-trigger" href="#"><?php echo ucfirst($this->session->userdata('nim'))?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#home">Pengajuan Judul TA</a>
+              <a class="nav-link js-scroll-trigger" href="<?php echo base_url('welcomemhs/formusulanjudul')?>">Pengajuan Judul TA</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Pendaftaran Ujian Proposal</a>

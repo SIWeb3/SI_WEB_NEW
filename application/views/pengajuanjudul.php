@@ -40,7 +40,10 @@
                 <div class="form-group">
                   <label for="dospem">Usulan Dosen Pembimbing</label>
                   <select name="dospem" class="form-control" required="">
-                    <option value="">Ratih Ayuninghemi</option>
+                    <?php foreach ($data_dosen as $row){ ?>
+          <option value="<?php echo $row->nip;?>"><?php echo $row->nama_dosen;?></option>
+          <?php }?>
+        </select>
                   </select>
                 </div>
 
