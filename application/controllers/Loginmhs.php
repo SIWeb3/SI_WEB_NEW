@@ -59,6 +59,14 @@ class Loginmhs extends CI_Controller {
 
 	}
 
+	function register(){
+		$this->cek();
+		$data = array('error' => $this->session->flashdata('error'), );
+		$this->load->view('header');
+		$this->load->view('register', $data);
+		$this->load->view('footer');
+	}
+
 	function logout(){
 		$this->session->sess_destroy();
 		redirect(base_url());

@@ -39,6 +39,10 @@
               <a class="nav-link js-scroll-trigger" <a href="<?php echo base_url('pilihan')?>">Login</a>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" <a href="<?php echo base_url('loginmhs/register')?>">Daftar</a>
+            </li>
+
           </ul>
         </div>
       </div>
