@@ -9,6 +9,12 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
+            <?php if(isset($success)){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                      <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <?php echo $success; ?>
+                    </div>
+                     <?php } ?>
             <h2>Tentang Sistem</h2>
             <p class="lead">Merupakan sebuah website yang digunakan mahasiswa dan dosen dalam melakukan proses pengajuan judul tugas akhir dan pendaftaran ujian proposal</p>
           </div>
@@ -26,5 +32,3 @@
         </div>
       </div>
     </section>
-
-    

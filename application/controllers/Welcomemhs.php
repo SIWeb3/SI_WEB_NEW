@@ -3,17 +3,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcomemhs extends CI_Controller {
 
+	function __construct(){
+		parent::__construct();
+
+		$this->load->model('loginmhs_model');
+	}
+
 	public function index()
 	{
+
+		$data = array(
+			'success' => $this->session->flashdata('success'),
+			'error' => $this->session->flashdata('error'),
+		);
+
+
 		$this->load->view('headermhs');
-		$this->load->view('home');
+		$this->load->view('home', $data);
 		$this->load->view('footer');
 	}
 
 	function formusulanjudul(){
+		$data = array(
+			'success' => $this->session->flashdata('success'),
+			'error' => $this->session->flashdata('error'),
+			'data_dosen' => $this->loginmhs_model->get_dosen(),
+		);
+
 		$this->load->view('headermhs');
-		$this->load->view('pengajuanjudul');
+		$this->load->view('pengajuanjudul', $data);
 		$this->load->view('footer');
+	}
+
+	function inputjudul(){
+		$data = array(
+				'tgl_input' => $this->input->post('tgl_input'),
+				'nim'=> $this->input->post('nim'),
+				'prodi'=> $this->input->post('prodi'),
+				'golongan'=> $this->input->post('golongan'),
+				'judul'=> $this->input->post('judul'),
+				'pengerjaan'=> $this->input->post('pengerjaan'),
+				'deskripsi'=> $this->input->post('deskripsi'),
+				'dosen_pembimbing'=> $this->input->post('dosen_pembimbing'),
+			);
+
+		$this->loginmhs_model->simpan('usulan_ta_mhs', $data);
+		$this->session->set_flashdata('success', 'Input judul berhasil');
+			redirect(base_url('Welcomemhs/index'));
 	}
 
 }
