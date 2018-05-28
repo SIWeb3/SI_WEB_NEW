@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Mei 2018 pada 06.02
+-- Generation Time: 28 Mei 2018 pada 08.52
 -- Versi Server: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -44,9 +44,9 @@ CREATE TABLE `ambil_judul_dosen` (
 
 CREATE TABLE `data_dosen` (
   `nip` varchar(30) NOT NULL,
-  `nik` varchar(50) NOT NULL,
   `nama_dosen` char(100) NOT NULL,
-  `id_hak` int(1) NOT NULL,
+  `id_hak` enum('1','2','3') NOT NULL,
+  `password` varchar(15) NOT NULL,
   `prodi` char(3) NOT NULL,
   `no_hp` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -55,8 +55,15 @@ CREATE TABLE `data_dosen` (
 -- Dumping data untuk tabel `data_dosen`
 --
 
-INSERT INTO `data_dosen` (`nip`, `nik`, `nama_dosen`, `id_hak`, `prodi`, `no_hp`) VALUES
-('123455', '', 'coba aja', 1, 'TKK', '');
+INSERT INTO `data_dosen` (`nip`, `nama_dosen`, `id_hak`, `password`, `prodi`, `no_hp`) VALUES
+('19710408 200112 1 003', 'Wahyu Kurnia Dewanto, S.Kom., M.T.\r\n', '1', '311', 'MIF', '081 252 449 69'),
+('19711115 199802 1 001', 'Adi Heru Utomo, S.Kom., M.Kom.\r\n', '1', '311', 'MIF', '085 236 010 820'),
+('19770929 200501 1 003', 'Didit Rahmat Hartadi S.Kom., M.T.\r\n', '1', '311', 'MIF', '085 234 609 168'),
+('19780819 200502 2 001', 'Ika Widiastuti, S.ST., M.T.\r\n', '1', '311', 'MIF', '081 249 794 912'),
+('19800517 200812 1 002', 'Dwi Putro Sarwo S, S.Kom., M.Kom.\r\n', '2', '311', 'MIF', '085 641 500 007'),
+('19810615 200604 1 002', 'Syamsul Arifin, S.Kom., M.Cs.\r\n', '2', '311', 'MIF', '081 249 515 151'),
+('19830203 200604 1 003', 'Hendra Yufit Riskiawan, S.Kom., M.Cs.\r\n', '1', '311', 'MIF', '085 649 222 290'),
+('19860609 200812 2 004', 'Nanik Anita M. ,S.ST.,M.T.\r\n', '1', '311', 'MIF', '081 234 909 509');
 
 -- --------------------------------------------------------
 
@@ -78,17 +85,6 @@ CREATE TABLE `data_mahasiswa` (
 
 INSERT INTO `data_mahasiswa` (`nim`, `nama`, `prodi`, `golongan`, `password`) VALUES
 ('e31160395', 'Dinda Ayu Pujiningtiyas', 'MIF', 'A', 'dinda');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `hak_akses`
---
-
-CREATE TABLE `hak_akses` (
-  `id_hak` int(1) NOT NULL,
-  `keterangan` char(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -152,6 +148,7 @@ CREATE TABLE `usulan_final` (
   `nim` varchar(9) NOT NULL,
   `prodi` char(3) NOT NULL,
   `judul` varchar(100) NOT NULL,
+  `pengerjaan` varchar(10) NOT NULL,
   `deskripsi` text NOT NULL,
   `dosen_pembimbing` varchar(16) NOT NULL,
   `tgl_input` date NOT NULL
@@ -181,7 +178,9 @@ CREATE TABLE `usulan_ta_mhs` (
   `id_usulan` int(11) NOT NULL,
   `nim` varchar(9) NOT NULL,
   `prodi` char(3) NOT NULL,
+  `golongan` varchar(1) NOT NULL,
   `judul` varchar(100) NOT NULL,
+  `pengerjaan` varchar(10) NOT NULL,
   `deskripsi` text NOT NULL,
   `dosen_pembimbing` varchar(16) NOT NULL,
   `tgl_input` date NOT NULL
@@ -213,13 +212,6 @@ ALTER TABLE `data_dosen`
 ALTER TABLE `data_mahasiswa`
   ADD PRIMARY KEY (`nim`),
   ADD KEY `Prodi` (`prodi`);
-
---
--- Indexes for table `hak_akses`
---
-ALTER TABLE `hak_akses`
-  ADD PRIMARY KEY (`id_hak`),
-  ADD KEY `Id_HA` (`id_hak`);
 
 --
 -- Indexes for table `kuota_dosen`
@@ -289,12 +281,6 @@ ALTER TABLE `ambil_judul_dosen`
   MODIFY `id_ambil` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `hak_akses`
---
-ALTER TABLE `hak_akses`
-  MODIFY `id_hak` int(1) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `penentuan_dospem`
 --
 ALTER TABLE `penentuan_dospem`
@@ -333,12 +319,6 @@ ALTER TABLE `usulan_ta_mhs`
 --
 ALTER TABLE `ambil_judul_dosen`
   ADD CONSTRAINT `ambil_judul_dosen_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `usulan_ta_mhs` (`nim`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `hak_akses`
---
-ALTER TABLE `hak_akses`
-  ADD CONSTRAINT `hak_akses_ibfk_1` FOREIGN KEY (`id_hak`) REFERENCES `data_dosen` (`id_hak`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `kuota_dosen`
