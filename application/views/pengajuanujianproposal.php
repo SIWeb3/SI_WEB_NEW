@@ -5,13 +5,13 @@
             <form action="<?php echo base_url('loginmhs/masuk') ?>" method="post">
               <div class="card">
               <div class="card-header">
-                <h2>Form Pengajuan Ujian Proposal/h2>
+                <h2>Form Pengajuan Ujian Proposal Tugas Akhir</h2>
               </div>
 
               <div class="card-body p-4">
                  <div class="form-group">
                   <label for="nim">NIM</label>
-                  <input type="text" name="nim" class="form-control" required="">
+                  <input type="text" disabled="" name="nim" class="form-control" required="" value="<?php echo ucfirst($this->session->userdata('nim'))?>">
                 </div>
               
                 <div class="form-group">
@@ -19,23 +19,21 @@
                   <input type="text" name="judul" class="form-control" required="">
                 </div>
 
-               <div class="form-group">
-                  <label for="pengerjaan">Individu/Kelompok</label>
-                  <input type="text" name="pengerjaan" class="form-control" required="">
+                <div class="form-group">
+                  <label for="dosen_pembimbing">Dosen Pembimbing</label>
+                  <select name="dosen_pembimbing" class="form-control" required="">
+                    <option>--Pilih Usulan Dosen Pembimbing--</option>
+                    <?php foreach ($data_dosen as $row){ ?>
+                    <option value="<?php echo $row->nip;?>"><?php echo $row->nama_dosen;?></option>
+                    <?php }?>
+                  </select>
                 </div>
 
                 <div class="form-group">
-                  <label for="deskripsi">Deskripsi</label>
-                  <input type="textarea" name="judul" class="form-control" required="">
+                  <label for="upload_file">Upload Proposal Tugas Akhir</label>
+                  <br>
+                  <input type="file" name="file">
                 </div>
-
-                <div class="form-group">
-                  <label for="deskripsi">Dosen Pembimbing</label>
-                  <input type="textarea" name="judul" class="form-control" required="">
-                </div>
-
-
-
               </div>
 
               <div class="card-footer text-right">

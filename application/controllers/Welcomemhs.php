@@ -52,4 +52,16 @@ class Welcomemhs extends CI_Controller {
 			redirect(base_url('Welcomemhs/index'));
 	}
 
+	function formujianproposal(){
+		$data = array(
+			'success' => $this->session->flashdata('success'),
+			'error' => $this->session->flashdata('error'),
+			'data_dosen' => $this->loginmhs_model->get_dosen(),
+		);
+
+		$this->load->view('headermhs');
+		$this->load->view('pengajuanujianproposal', $data);
+		$this->load->view('footer');
+	}
+
 }

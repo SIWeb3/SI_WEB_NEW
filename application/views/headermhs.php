@@ -36,7 +36,10 @@
               <a class="nav-link js-scroll-trigger" href="<?php echo base_url('welcomemhs/formusulanjudul')?>">Pengajuan Judul TA</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Pendaftaran Ujian Proposal</a>
+              <a class="nav-link js-scroll-trigger" href="<?php echo base_url('welcomemhs/formujianproposal')?>">Pendaftaran Ujian Proposal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="<?php echo base_url()?>">Hasil Review</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" <a href="<?php echo base_url('loginmhs/logout')?>">Logout</a>
