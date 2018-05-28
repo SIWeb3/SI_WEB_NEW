@@ -2,7 +2,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <form action="<?php echo base_url('loginmhs/masuk') ?>" method="post">
+            <form action="<?php echo base_url('welcomemhs/daftarujian') ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
               <div class="card">
               <div class="card-header">
                 <h2>Form Pengajuan Ujian Proposal Tugas Akhir</h2>
@@ -10,8 +10,16 @@
 
               <div class="card-body p-4">
                  <div class="form-group">
+
+                   <?php if(isset($error)){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                      <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <?php echo $error; ?>
+                    </div>
+                  <?php } ?>
+
                   <label for="nim">NIM</label>
-                  <input type="text" disabled="" name="nim" class="form-control" required="" value="<?php echo ucfirst($this->session->userdata('nim'))?>">
+                  <input type="text" name="nim" class="form-control" required="" value="<?php echo ucfirst($this->session->userdata('nim'))?>">
                 </div>
               
                 <div class="form-group">

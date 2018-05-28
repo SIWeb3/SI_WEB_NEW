@@ -64,4 +64,39 @@ class Welcomemhs extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	function daftarujian(){
+		$nim=$this->input->post('nim');
+		$judul=$this->input->post('judul');
+		$nip=$this->input->post('dosen_pembimbing');
+		$file=$this->input->post('file');
+
+		$this->load->library('upload');
+
+		$config['upload_path'] = FCPATH.'assets/proposal';
+		$config['allowed_types'] = 'doc|pdf';
+		$config['overwrite'] = TRUE;
+		$config['max_size']  = '1024';
+		
+		
+		$this->upload->initialize($config);
+		
+		if ( ! $this->upload->do_upload('file')){
+			$this->session->set_flashdata('error', 'Upload file gagal !'.$this->upload->display_errors());
+			redirect(base_url('Welcomemhs/formujianproposal'));
+			
+		} else {
+
+			$data = array(
+			'nim' => $nim,
+			'judul' => $judul,
+			'nip' => $nip,
+			'upload_file' => $_FILES['file']['name'],
+			);
+
+			$this->loginmhs_model->simpan('pendaftaran_proposal', $data);
+			$this->session->set_flashdata('success', 'Pendaftaran Ujian Proposal Berhasil');
+			redirect(base_url('Welcomemhs/index'));
+		}
+	}
+
 }
