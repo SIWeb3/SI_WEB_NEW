@@ -38,15 +38,15 @@ class Logindosen extends CI_Controller {
 			}
 			if($this->session->userdata('hak_akses') == '1')
 			{
-				redirect('welcomemhs');
+				redirect('dosen/index');
 			}
 			elseif($this->session->userdata('hak_akses') == '2')
 			{
-				redirect('welcomemhs');
+				redirect('dosen/index');
 			}
 			elseif($this->session->userdata('hak_akses') == '3')
 			{
-				redirect('welcomemhs');
+				redirect('dosen/index');
 			}
 		}
 		else
