@@ -13,6 +13,11 @@ class Logindosen_model extends CI_Model {
 		$this->db->insert($table, $data);
 	}
 
+
+	//function select(){
+		//$query = $this->db->get('listjudul');  
+        // return $query;   
+	//}
 }
 
 /* End of file Login_model.php */

@@ -1,3 +1,27 @@
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Kuota Dosen</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fa fa-minus"></i></button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <div class="box-body">
+
+
+
 <section id="about">
       <div class="container">
         <div class="row">
@@ -18,8 +42,8 @@
                 </div>
               
                 <div class="form-group">
-                  <label for="judul">Usulan Judul Tugas Akhir</label>
-                  <input type="text" name="judul" class="form-control" required="">
+                  <label for="juduldosen">Usulan Judul Tugas Akhir</label>
+                  <input type="text" name="juduldosen" class="form-control" required="">
                 </div>
 
                 <div class="form-group">
@@ -28,8 +52,8 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="deskripsi">Kuota</label>
-                  <textarea name="deskripsi" class="form-control" required=""></textarea> 
+                  <label for="kuota">Kuota</label>
+                  <textarea name="kuota" class="form-control" required=""></textarea> 
                 </div>
                
 
@@ -46,3 +70,18 @@
         </div>
       </div>
     </section>
+
+
+
+     </div>
+        <!-- /.box-body 
+        <div class="box-footer">
+          Footer
+        </div>
+        /.box-footer-->
+      </div>
+      <!-- /.box -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

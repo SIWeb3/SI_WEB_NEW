@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Logindosen extends CI_Controller {
+class Dosen extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -13,6 +13,8 @@ class Logindosen extends CI_Controller {
 	public function index()
 	{
 		$data = array(
+			'success'=> $this->session->flashdata('success'),
+			'error'=> $this->session->flashdata('error'),
 			'uniqid'=>'home',
 		);
 
@@ -36,15 +38,15 @@ class Logindosen extends CI_Controller {
 				'kuota'=> $this->input->post('kuota'),
 			);
 
-		$this->loginmhs_model->simpan('usulan_judul_dosen', $data);
+		$this->logindosen_model->simpan('usulan_judul_dosen', $data);
 		$this->session->set_flashdata('success', 'Input judul berhasil');
 			redirect(base_url('dosen/index'));
 	}
 
-	
 
 
-}
+
+ }
 
 /* End of file Dosen.php */
 /* Location: ./application/controllers/Dosen.php */
