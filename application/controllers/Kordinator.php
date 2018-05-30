@@ -16,7 +16,7 @@ class Kordinator extends CI_Controller {
 				'data_dosen'=>$this->Kuotadosen_model->datadosen());
 				
 		$this->load->view('kordinator/header');
-		$this->load->view('kordinator/home',$data);
+		$this->load->view('kordinator/kuotadosen',$data);
 		$this->load->view('kordinator/footer');
 	}
 	function isikuota(){
