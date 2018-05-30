@@ -2,7 +2,13 @@
 
 <div class="container">
         <div class="row">
-          <div class="col-lg-10 mx-auto">
+          <div class="col-lg-12 mx-auto">
+            <?php if(isset($success)){ ?>
+                    <div class="alert alert-danger alert-dismissible">
+                      <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                      <?php echo $success; ?>
+                    </div>
+                     <?php } ?>
            <div class="card-footer text-right">
             <a href="<?php echo base_url ('welcomemhs/formusulanjudul')?>">
                 <button type="submit" class="btn btn-primary">Input Usulan Judul Tugas Akhir</button></a>
@@ -15,7 +21,7 @@
 
  <div class="container">
         <div class="row">
-          <div class="col-lg-10 mx-auto">
+          <div class="col-lg-12 mx-auto">
             <form action="" method="post">
               <div class="card">
               <div class="card-header">
@@ -25,7 +31,7 @@
               <div class="card-body p-6">
 
                 <table class="table">
-              <thead>
+              <thead align="center">
               <tr>
                 <th scope="col">Tgl_Input</th>
                 <th scope="col">NIM</th>
@@ -35,27 +41,28 @@
                 <th scope="col">Pengerjaan</th>
                 <th scope="col">Deskripsi</th>
                 <th scope="col">Usulan Dosen Pembimbing</th>
+                <th scope="col">Aksi</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
+              <?php 
+              foreach ($cek as $data) { ?>
+<tr>
+  <td><?php echo $data->tgl_input; ?></td>
+  <td><?php echo $data->nim; ?></td>
+  <td><?php echo $data->prodi; ?></td>
+  <td><?php echo $data->golongan; ?></td>
+  <td><?php echo $data->judul; ?></td>
+  <td><?php echo $data->pengerjaan; ?></td>
+  <td><?php echo $data->deskripsi; ?></td>
+  <td width="50px"><?php echo $data->dosen_pembimbing; ?></td>
+  <td><button type="submit" class="btn btn-primary">edit</button>
+  <button type="submit" class="btn btn-danger">hapus</button></td>
+
+</tr>
+                
+              <?php }
+              ?>
             </tbody>
           </table>
 

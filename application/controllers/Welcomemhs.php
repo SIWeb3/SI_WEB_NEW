@@ -49,7 +49,7 @@ class Welcomemhs extends CI_Controller {
 
 		$this->loginmhs_model->simpan('usulan_ta_mhs', $data);
 		$this->session->set_flashdata('success', 'Input judul berhasil');
-			redirect(base_url('Welcomemhs/index'));
+			redirect(base_url('Welcomemhs/judulmhs'));
 	}
 
 	function formujianproposal(){
@@ -100,18 +100,18 @@ class Welcomemhs extends CI_Controller {
 	}
 
 	function judulmhs(){
-
-		$data = array(
+		$nim=$this->session->userdata('nim');
+		$cek=$this->loginmhs_model->listjudul($nim)->result();
+		$data = array (
 			'success' => $this->session->flashdata('success'),
 			'error' => $this->session->flashdata('error'),
+			'cek' => $cek
 		);
 
-		
 		$this->load->view('headermhs');
 		$this->load->view('listjudulmhs',$data);
 		$this->load->view('footer');
 	}
-
   }
 
 

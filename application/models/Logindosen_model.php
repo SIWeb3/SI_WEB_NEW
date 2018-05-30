@@ -10,8 +10,10 @@ class Logindosen_model extends CI_Model {
 	}
 
 	function select(){
-		$query = $this->db->get('listjudul');  
-         return $query;   
+		return $this->db->get_where($table, $where);
+	}
+	function tampiljudul($table, $where){
+		return $this->db->get_where($table,$where);
 	}
 }
 

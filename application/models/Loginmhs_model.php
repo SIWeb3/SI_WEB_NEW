@@ -18,6 +18,26 @@ class Loginmhs_model extends CI_Model {
 	     $query = $this->db->query("SELECT * FROM data_dosen");
 		return $query->result();
 	}	
+
+	function listjudul($nim){
+		// $this->db->select('*');	
+		// $this->db->join('data_dosen', 'data_dosen.nip=usulan_ta_mhs.dosen_pembimbing');
+		// $this->db->from('usulan_ta_mhs');
+		// $this->db->where('nim', $nim);
+
+		// $query=$this->db->get();
+		// return $query;
+
+		$this->db->select('*');
+		$this->db->from('usulan_ta_mhs');
+		$this->db->where('nim', $nim);
+
+		$query=$this->db->get();
+		return $query;
+
+	}
+
+
 		 }
 
 /* End of file Login_model.php */
