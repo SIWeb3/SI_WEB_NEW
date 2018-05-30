@@ -6,7 +6,7 @@
     </header>
 
     <section id="home">
-      <div class="container">
+      <div class="container" height="20%">
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <?php if(isset($success)){ ?>
@@ -15,20 +15,10 @@
                       <?php echo $success; ?>
                     </div>
                      <?php } ?>
-            <h2>Tentang Sistem</h2>
-            <p class="lead">Merupakan sebuah website yang digunakan mahasiswa dan dosen dalam melakukan proses pengajuan judul tugas akhir dan pendaftaran ujian proposal</p>
+                     <h2>Tentang Sistem</h2>
+            <p class="lead">Sistem Ini merupakan sistem pengajuan judul tugas akhir bagi mahasiswa Jurusan Teknologi Informasi</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2>Alamat</h2>
-            <p class="lead">Gedung Jurusan Teknologi Informasi, Politeknik Negeri Jember</p>
-          </div>
-        </div>
-      </div>
-    </section>

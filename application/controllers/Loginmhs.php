@@ -96,5 +96,17 @@ class Loginmhs extends CI_Controller {
 		redirect(base_url());
 	}
 
+	function judulmhs(){
+		$data = array(
+			'success' => $this->session->flashdata('success'),
+			'error' => $this->session->flashdata('error'),
+		);
+
+		
+		$this->load->view('header');
+		$this->load->view('listjudulmhs',$data);
+		$this->load->view('footer');
+	}
+
 	
 }

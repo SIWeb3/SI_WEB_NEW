@@ -99,4 +99,19 @@ class Welcomemhs extends CI_Controller {
 		}
 	}
 
-}
+	function judulmhs(){
+
+		$data = array(
+			'success' => $this->session->flashdata('success'),
+			'error' => $this->session->flashdata('error'),
+		);
+
+		
+		$this->load->view('headermhs');
+		$this->load->view('listjudulmhs',$data);
+		$this->load->view('footer');
+	}
+
+  }
+
+

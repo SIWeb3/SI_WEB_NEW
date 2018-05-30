@@ -1,4 +1,18 @@
 <section id="about">
+
+  <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+           <div class="card-footer text-right">
+            <a href="<?php echo base_url ('welcomemhs/judulmhs')?>">
+                <button type="submit" class="btn btn-primary">Daftar Usulan Judul Tugas Akhir</button></a>
+              </div>
+              </div>
+        </div>
+      </div>
+
+
+
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
