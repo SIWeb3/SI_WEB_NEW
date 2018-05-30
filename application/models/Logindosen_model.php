@@ -9,10 +9,10 @@ class Logindosen_model extends CI_Model {
 		return $this->db->get('data_dosen');
 	}
 
-	function select(){
-		$query = $this->db->get('listjudul');  
-         return $query;   
+		function simpan($table, $data){
+		$this->db->insert($table, $data);
 	}
+
 }
 
 /* End of file Login_model.php */

@@ -66,8 +66,14 @@
       <ul class="sidebar-menu">
         <li class="header">MENU UTAMA</li>
         <li class="treeview">
-          <a href="#">
+          <a href="<?php echo base_url('dosen/inputjuduldosen')?>">
             <i class="fa fa-dashboard"></i> <span>Input Judul Penelitian</span>
+            
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Daftar Judul Penelitian</span>
             
           </a>
         </li>
