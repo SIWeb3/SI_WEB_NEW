@@ -13,7 +13,10 @@ class Kordinator extends CI_Controller {
 		$data = array(
 				'success' => $this->session->flashdata('success'),
 				'error' => $this->session->flashdata('error'),
-				'data_dosen'=>$this->Kuotadosen_model->datadosen());
+				'data_dosen'=>$this->Kuotadosen_model->datadosen(),
+				'lihatkuota'=>$this->Kuotadosen_model->lihatkuota(),
+				
+				);
 				
 		$this->load->view('kordinator/header');
 		$this->load->view('kordinator/kuotadosen',$data);

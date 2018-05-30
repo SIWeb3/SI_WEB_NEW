@@ -70,14 +70,27 @@
       </div>
     </section>
         </div>
-        <!-- /.box-body -->
+        <!-- /.box-body 
         <div class="box-footer">
           Footer
         </div>
-        <!-- /.box-footer-->
+        /.box-footer-->
       </div>
       <!-- /.box -->
-
+		<table class="table table-bordered " style="background-color:white;">
+			<tr>
+			<th>NIP</th>
+			<th>Nama</th>
+			<th>Kuota</th>
+			</tr>
+			<?php foreach ($lihatkuota as $row){ ?>
+				<tr>
+				<td><?php echo $row->nip; ?></td>
+				<td><?php echo $row->nama_dosen; ?></td>
+				<td><?php echo $row->kuota; ?></td>
+				</tr>
+            <?php }?>
+		</table>
     </section>
     <!-- /.content -->
   </div>
