@@ -1,5 +1,4 @@
-
-  <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
 
@@ -8,8 +7,9 @@
 
       <!-- Default box -->
       <div class="box">
+        
         <div class="box-header with-border">
-          <h3 class="box-title">Kuota Dosen</h3>
+          <h3 class="box-title">Usulan Judul Dosen</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -19,57 +19,68 @@
           </div>
         </div>
         <div class="box-body">
-		<?php if(isset($error)){ ?>
+          <?php if(isset($error)){ ?>
                     <div class="alert alert-danger alert-dismissible">
                       <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                       <?php echo $error; ?>
                     </div>
               <?php } ?>
-			  <?php if(isset($success)){ ?>
+        <?php if(isset($success)){ ?>
                     <div class="alert alert-info alert-dismissible">
                       <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                       <?php echo $success; ?>
                     </div>
               <?php } ?>
-          <section id="about">
+        <section id="about">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <form action="<?php echo base_url('kordinator/isikuota') ?>" method="post">
+            <form action="<?php echo base_url('kordinator/formdaftarusulanjuduldosen') ?>" method="post">
               <div class="card">
-              
-
-              <div class="card-body p-4">
-    
-
-                <div class="form-group">
-                  <label for="dosen_pembimbing">Nama Dosen</label>
-                  <select name="nama_dosen" class="form-control" required="">
-                    <?php foreach ($data_dosen as $row){ ?>
-                    <option value="<?php echo $row->nip;?>"><?php echo $row->nama_dosen;?></option>
-                    <?php }?>
-                  </select>
-                </div>
-
-                
-              
-                <div class="form-group">
-                  <label for="kuota dosen">Kuota Dosen</label>
-                  <input type="number" name="kuota" class="form-control" required="">
-                </div>
-				
-                </div>
-
-              <div class="card-footer text-right">
-                <button type="submit" name="kirim" class="btn btn-primary">Submit</button>
+              <div class="card-header">
+                <h2>Form Daftar Data Mahasiswa
               </div>
+
+              <div class="card-body p-4" align="center">
+
+              <table class="table table-bordered "  style="background-color:white; width: 100%;">
+                <tr>
+                  <th>No</th>
+                  <th>NIM</th>
+                  <th>nama</th>
+                  <th>prodi</th>
+                  <th>golongan</th>
+                 
+                </tr>
+                <?php 
+                $no = 1;
+                foreach($inner as $u){ 
+                ?>
+                <tr>
+                  <td><?php echo $no++ ?></td>
+                  <td><?php echo $u->nim ?></td>
+                  <td><?php echo $u->nama ?></td>
+                  <td><?php echo $u->prodi ?></td> 
+                  <td><?php echo $u->golongan ?></td>        
+                </tr><?php }?>
+              </table>
+    
+        
+
+
+              </div>
+
+              
             </div>
           </form>
           </div>
         </div>
       </div>
     </section>
-        </div>
+
+
+
+     </div>
         <!-- /.box-body 
         <div class="box-footer">
           Footer
@@ -77,20 +88,6 @@
         /.box-footer-->
       </div>
       <!-- /.box -->
-		<table class="table table-bordered " style="background-color:white;">
-			<tr>
-			<th>NIP</th>
-			<th>Nama</th>
-			<th>Kuota</th>
-			</tr>
-			<?php foreach ($lihatkuota as $row){ ?>
-				<tr>
-				<td><?php echo $row->nip; ?></td>
-				<td><?php echo $row->nama_dosen; ?></td>
-				<td><?php echo $row->kuota; ?></td>
-				</tr>
-            <?php }?>
-		</table>
     </section>
     <!-- /.content -->
   </div>

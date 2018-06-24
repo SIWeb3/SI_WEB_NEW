@@ -1,9 +1,9 @@
 <?php 
-$this->load->view('dosen/header'); 
+$this->load->view('kordinator/header'); 
 if (isset($uniqid)){ 
-  $this->load->view('dosen/'.$uniqid); 
+  $this->load->view('kordinator/'.$uniqid); 
 } else { 
   show_404(); 
 } 
-$this->load->view('dosen/footer'); 
+$this->load->view('kordinator/footer'); 
 ?>

@@ -66,11 +66,19 @@
       <ul class="sidebar-menu">
         <li class="header">MENU UTAMA</li>
         <li class="treeview">
-          <a href="#">
+          <a href="<?php echo base_url('kordinator/inputjuduldosen')?>">
             <i class="fa fa-dashboard"></i> <span>Input Judul Penelitian</span>
             
           </a>
         </li>
+
+        <li class="treeview">
+          <a href="<?php echo base_url('kordinator/daftarusulanjudul')?>">
+            <i class="fa fa-dashboard"></i> <span>Daftar Judul Penelitian</span>
+            
+          </a>
+        </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Usulan Mahasiswa Bimbingan</span>   
@@ -78,7 +86,22 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Daftar Mahasiswa Bimbingan</span>   
+            <i class="fa fa-dashboard"></i> <span>Daftar Mahasiswa Bimbingan</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="<?php echo base_url('kordinator/daftarmhs')?>">
+            <i class="fa fa-dashboard"></i> <span>Daftar Data Mahasiswa</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Daftar Data Dosen</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="<?php echo base_url('kordinator/index')?>">
+            <i class="fa fa-dashboard"></i> <span>Daftar Data Kuota Dosen</span>  
         </li>
       </ul>
     </section>

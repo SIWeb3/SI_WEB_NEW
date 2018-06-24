@@ -6,6 +6,8 @@ class Kordinator extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('url'));
 		$this->load->model('Kuotadosen_model');
+		$this->load->model('logindosen_model');
+		$this->load->model('koor_model');
         
 	}
 	public function index()
@@ -34,6 +36,66 @@ class Kordinator extends CI_Controller {
 			redirect(base_url('Kordinator'));
 		}
 	}
+
+
+	public function inputjuduldosen(){
+		$data = array(
+			'uniqid'=>'juduldosen',
+		);
+
+		$this->load->view('kordinator/content',$data);
+	}
+
+	function forminputjuduldosen(){
+		$data = array(
+				
+				'nip'=> $this->input->post('nip'),
+				'judul_dosen'=> $this->input->post('juduldosen'),
+				'deskripsi'=> $this->input->post('deskripsi'),
+				'kuota'=> $this->input->post('kuota'),
+				
+			);
+
+		$this->logindosen_model->simpan('usulan_judul_dosen', $data);
+		$this->session->set_flashdata('success', 'Input judul berhasil');
+			redirect(base_url('kordinator/daftarusulanjudul'));
+	}
+
+	function daftarusulanjudul(){
+		$data = array(
+			'uniqid' => 'daftarusulanjudul',
+			$this->load->model('Pengajuan_Model'),
+			'inner' => $this->Pengajuan_Model->tampil_judul(),
+		);
+
+		$this->load->view('kordinator/content',$data);
+	}
+
+	function daftar(){
+		$x['inner'] = $this->Pengajuan_Model->tampil_judul();
+		$this->load->view('kordinator/daftarusulanjudul',$x);
+	}
+
+	function formdaftarusulanjuduldosen(){
+
+	}
+
+	public function daftarmhs()
+	{
+		$data = array(
+			'uniqid' => 'datamahasiswa',
+			$this->load->model('Pengajuan_Model'),
+			'inner' => $this->Pengajuan_Model->tampil_mhs(),
+		);
+		$this->load->view('kordinator/content',$data);
+	}
+
+	function daftarmahasiswa(){
+		$x['inner'] = $this->Pengajuan_Model->tampil_mhs();
+		$this->load->view('kordinator/datamahasiswa',$x);
+	}
+
+
 }
 
 /* End of file Dosen.php */

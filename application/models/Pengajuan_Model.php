@@ -12,4 +12,12 @@ class Pengajuan_Model extends CI_Model{
 	    $x = $this->db->get(); //mengambil seluruh data
 	    return $x->result(); //mengembalikan data
 	}
+
+	function tampil_mhs(){
+		$this->db->select('*'); //mengambil semua data dari tabel data_users dan users
+	    $this->db->from('data_mahasiswa'); //dari tabel data_users
+	    //$this->db->join('data_dosen', 'usulan_judul_dosen.nip = data_dosen.nip', 'left'); //menyatukan tabel users menggunakan left join
+	    $x = $this->db->get(); //mengambil seluruh data
+	    return $x->result(); //mengembalikan data
+	}
 }
