@@ -95,7 +95,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="<?php echo base_url('kordinator/daftardsn')?>">
             <i class="fa fa-dashboard"></i> <span>Daftar Data Dosen</span>
           </a>
         </li>

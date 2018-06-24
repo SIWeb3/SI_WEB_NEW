@@ -96,6 +96,22 @@ class Kordinator extends CI_Controller {
 	}
 
 
+	public function daftardsn()
+	{
+		$data = array(
+			'uniqid' => 'datadosen',
+			$this->load->model('Pengajuan_Model'),
+			'inner' => $this->Pengajuan_Model->tampil_dsn(),
+		);
+		$this->load->view('kordinator/content',$data);
+	}
+
+	function daftardosen(){
+		$x['inner'] = $this->Pengajuan_Model->tampil_dsn();
+		$this->load->view('kordinator/datadosen',$x);
+	}
+
+
 }
 
 /* End of file Dosen.php */
