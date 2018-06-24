@@ -42,7 +42,7 @@ class Logindosen extends CI_Controller {
 			}
 			elseif($this->session->userdata('hak_akses') == '2')
 			{
-				redirect('dosen/index');
+				redirect('reviewer/index');
 			}
 			elseif($this->session->userdata('hak_akses') == '3')
 			{
