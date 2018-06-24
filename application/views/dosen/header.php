@@ -72,7 +72,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="<?php echo base_url('dosen/daftarusulanjudul')?>">
             <i class="fa fa-dashboard"></i> <span>Daftar Judul Penelitian</span>
             
           </a>

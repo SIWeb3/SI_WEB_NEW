@@ -43,8 +43,24 @@ class Dosen extends CI_Controller {
 			redirect(base_url('dosen/index'));
 	}
 
+	function daftarusulanjudul(){
+		$data = array(
+			'uniqid' => 'daftarusulanjudul',
+			$this->load->model('Pengajuan_Model'),
+			'inner' => $this->Pengajuan_Model->tampil_judul(),
+		);
 
+		$this->load->view('dosen/content',$data);
+	}
 
+	function daftar(){
+		$x['inner'] = $this->Pengajuan_Model->tampil_judul();
+		$this->load->view('dosen/daftarusulanjudul',$x);
+	}
+
+	function formdaftarusulanjuduldosen(){
+
+	}
 
  }
 

@@ -9,13 +9,13 @@ class Logindosen_model extends CI_Model {
 		return $this->db->get('data_dosen');
 	}
 
-	function select(){
-		return $this->db->get_where($table, $where);
-	}
-	function tampiljudul($table, $where){
-		return $this->db->get_where($table,$where);
+	//function select(){
+		//return $this->db->get_where($table, $where);
+	//}
+	//function tampiljudul($table, $where){
+		//return $this->db->get_where($table,$where);
 
-	}
+	//}
 		function simpan($table, $data){
 		$this->db->insert($table, $data);
 
