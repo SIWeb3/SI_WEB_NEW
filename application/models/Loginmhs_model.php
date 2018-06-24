@@ -37,6 +37,20 @@ class Loginmhs_model extends CI_Model {
 
 	}
 
+	function listjuduldosen(){
+		$this->db->select('usulan_judul_dosen.nip, data_dosen.nama_dosen, usulan_judul_dosen.judul_dosen, usulan_judul_dosen.deskripsi, usulan_judul_dosen.kuota');
+		$this->db->from('usulan_judul_dosen');
+		$this->db->join('data_dosen', 'data_dosen.nip=usulan_judul_dosen.nip');
+
+		$data = $this->db->get(); //mengambil seluruh data
+    	return $data->result(); //mengembalikan data
+		
+	}
+
+	function ambiljuduldosen(){
+		
+	}
+
 
 		 }
 

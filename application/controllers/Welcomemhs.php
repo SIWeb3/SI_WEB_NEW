@@ -9,12 +9,12 @@ class Welcomemhs extends CI_Controller {
 		$this->load->model('loginmhs_model');
 	}
 
-	public function index()
-	{
-
+	public function index(){
+		$cek=$this->loginmhs_model->listjuduldosen();
 		$data = array(
 			'success' => $this->session->flashdata('success'),
 			'error' => $this->session->flashdata('error'),
+			'cek' => $cek
 		);
 
 
@@ -112,6 +112,22 @@ class Welcomemhs extends CI_Controller {
 		$this->load->view('listjudulmhs',$data);
 		$this->load->view('footer');
 	}
+
+	function ambiljuduldosen(){
+		/*$data = array(
+				
+				'nip'=> $this->input->post('nip'),
+				'judul_dosen'=> $this->input->post('juduldosen'),
+				'deskripsi'=> $this->input->post('deskripsi'),
+				'kuota'=> $this->input->post('kuota'),
+			);*/
+
+		$this->loginmhs_model->simpan('ambiljuduldosen', $data);
+		$this->session->set_flashdata('success', 'Input judul berhasil');
+			redirect(base_url('Welcomemhs/index'));
+	}
+
+	
   }
 
 
