@@ -35,7 +35,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <form action="<?php echo base_url('kordinator/isikuota') ?>" method="post">
+            <form action="<?php echo base_url('kordinator/updatekuota') ?>" method="post">
               <div class="card">
               
 
@@ -44,18 +44,16 @@
 
                 <div class="form-group">
                   <label for="dosen_pembimbing">Nama Dosen</label>
-                  <select name="nama_dosen" class="form-control" required="">
-                    <?php foreach ($data_dosen as $row){ ?>
-                    <option value="<?php echo $row->nip;?>"><?php echo $row->nama_dosen;?></option>
-                    <?php }?>
-                  </select>
+                  
+				  <input type="text" disabled name="nama" class="form-control"  value="<?= $isi[0]->nama_dosen ?>" >
+				 
                 </div>
 
-                
+                <input type="hidden" name="nip" value="<?= $isi[0]->nip ?>">
               
                 <div class="form-group">
                   <label for="kuota dosen">Kuota Dosen</label>
-                  <input type="number" name="kuota" class="form-control" required="">
+                  <input type="number" name="kuota" class="form-control" value="<?= $isi[0]->kuota ?>" required="">
                 </div>
 				
               </div>
@@ -77,22 +75,6 @@
         /.box-footer-->
       </div>
       <!-- /.box -->
-		<table class="table table-bordered " style="background-color:white;">
-			<tr>
-			<th>NIP</th>
-			<th>Nama</th>
-			<th>Kuota</th>
-			<th>Status</th>
-			</tr>
-			<?php foreach ($lihatkuota as $row){ ?>
-				<tr>
-				<td><?php echo $row->nip; ?></td>
-				<td><?php echo $row->nama_dosen; ?></td>
-				<td><?php echo $row->kuota; ?></td>
-				<td><a href="<?php echo base_url(); ?>Kordinator/editkuota/?nip=<?php echo $row->nip;?>">Edit</a> | <a href="<?php echo base_url(); ?>Kordinator/deletekuota/?nip=<?php echo $row->nip;?>">Hapus</a></td>
-				</tr>
-            <?php }?>
-		</table>
     </section>
     <!-- /.content -->
   </div>

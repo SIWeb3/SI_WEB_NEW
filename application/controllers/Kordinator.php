@@ -16,8 +16,7 @@ class Kordinator extends CI_Controller {
 				'success' => $this->session->flashdata('success'),
 				'error' => $this->session->flashdata('error'),
 				'data_dosen'=>$this->Kuotadosen_model->datadosen(),
-				'lihatkuota'=>$this->Kuotadosen_model->lihatkuota(),
-				
+				'lihatkuota'=>$this->Kuotadosen_model->lihatkuota(),		
 				);
 				
 		$this->load->view('kordinator/header');
@@ -110,6 +109,41 @@ class Kordinator extends CI_Controller {
 		$x['inner'] = $this->Pengajuan_Model->tampil_dsn();
 		$this->load->view('kordinator/datadosen',$x);
 	}
+	function deletekuota(){
+		if(isset($_GET['nip'])){
+		$id=$_GET['nip'];
+		//echo"$id";
+		$this->Kuotadosen_model->delete_kuota($id);
+		$this->session->set_flashdata('success', 'Berhasil di hapus');
+		redirect(base_url('Kordinator'));
+		}
+	}
+	function editkuota(){
+		if(isset($_GET['nip'])){
+		$id=$_GET['nip'];
+		echo"$id";
+		
+		$data = array(
+				'isi'=>$this->Kuotadosen_model->edit_kuota($id)
+				);
+		$this->load->view('kordinator/header');
+		$this->load->view('kordinator/edit_kuota',$data);
+		$this->load->view('kordinator/footer');
+		}
+	}
+	public function updatekuota(){
+		if(isset($_POST['kirim'])){
+			$id = $this->input->post('nip');
+			$insert = $this->Kuotadosen_model->update_kuota(array(
+				'kuota' => $this->input->post('kuota')
+            ), $id);
+			$this->session->set_flashdata('success', 'Berhasil di update');
+			redirect(base_url('Kordinator'));
+		}
+		else{
+			echo"gagal";
+		}
+	  }
 
 
 }
