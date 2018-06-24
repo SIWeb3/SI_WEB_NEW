@@ -66,13 +66,13 @@
       <ul class="sidebar-menu">
         <li class="header">MENU UTAMA</li>
         <li class="treeview">
-          <a href="<?php echo base_url('dosen/inputjuduldosen')?>">
+          <a href="<?php echo base_url('reviewer/inputjuduldosen')?>">
             <i class="fa fa-dashboard"></i> <span>Input Judul Penelitian</span>
             
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo base_url('dosen/daftarusulanjudul')?>">
+          <a href="<?php echo base_url('reviewer/daftarusulanjudul')?>">
             <i class="fa fa-dashboard"></i> <span>Daftar Judul Penelitian</span>
             
           </a>
