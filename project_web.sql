@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2018 at 10:17 AM
+-- Generation Time: Jun 25, 2018 at 01:41 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -54,14 +54,43 @@ CREATE TABLE `data_dosen` (
 --
 
 INSERT INTO `data_dosen` (`nip`, `nama_dosen`, `hak_akses`, `password`, `prodi`, `no_hp`) VALUES
+('19700831 199803 1 001', 'Moh. Munih Dian W, S.Kom.,M.T.\r\n', '1', '311', 'TIF', '081 233 075 06'),
+('19700929 200312 1 001', 'Yogiswara, S.T., M.T.\r\n', '1', '311', 'TKK', '081 249 735 955'),
+('19701128 200312 1 001', 'Hariyono Rakhmad, S.Pd., M.Kom.\r\n', '1', '311', 'TKK', '081 559 056 16'),
 ('19710408 200112 1 003', 'Wahyu Kurnia Dewanto, S.Kom., M.T.\r\n', '1', '311', 'MIF', '081 252 449 69'),
+('19711009 200312 1 001', 'Denny Trias Utomo, S.Si., M.T.\r\n', '1', '311', 'TIF', '081 136 253 20'),
 ('19711115 199802 1 001', 'Adi Heru Utomo, S.Kom., M.Kom.\r\n', '1', '311', 'MIF', '085 236 010 820'),
+('19730831 200801 1 003', 'Agus Purwadi, S.T., M.T.\r\n', '1', '311', 'TKK', '081 249 147 40'),
+('19740519 200312 1 002', 'Nugroho Setyo Wibowo, S.T.,M.T.\r\n', '1', '311', 'TIF', '085 236 329 999'),
 ('19770929 200501 1 003', 'Didit Rahmat Hartadi S.Kom., M.T.\r\n', '1', '311', 'MIF', '085 234 609 168'),
+('19780816 200501 1 002', 'Beni Widiawan, S.ST., M.T.\r\n', '2', '311', 'TKK', '081 336 285 687'),
+('19780817 200312 1 005', 'Agus Hariyanto, S.T., M.Kom.\r\n', '2', '311', 'TKK', '085 236 986 278'),
 ('19780819 200502 2 001', 'Ika Widiastuti, S.ST., M.T.\r\n', '3', '311', 'MIF', '081 249 794 912'),
+('19780908 200501 1 001', 'Denny Wijanarko, S.T.,M.T.\r\n', '1', '311', 'TKK', '082 334 417 777'),
+('19781011 200501 2 002', 'Elly Antika, S.T., M.Kom\r\n', '1', '311', 'TIF', '081 249 460 73'),
+('19790703 200312 1 001', 'Surateno, S.Kom.,M.Kom.\r\n', '1', '311', 'TKK', '085 236 752 542'),
+('19790921 200501 1 001', 'I Putu Dody Lesmana, S.T.,M.T.\r\n', '1', '311', 'TIF', '081 250 003 479'),
 ('19800517 200812 1 002', 'Dwi Putro Sarwo S, S.Kom., M.Kom.\r\n', '2', '311', 'MIF', '085 641 500 007'),
+('19801212 200501 1 001', 'Prawidya Destarianto, S.Kom.,M.T.\r\n', '1', '311', 'TIF', '085 236 090 999'),
+('19810115 200501 1 001', 'Nurul Zainal Fanani, S.ST, M.T.\r\n', '1', '311', 'TKK', '081 249 254 949'),
 ('19810615 200604 1 002', 'Syamsul Arifin, S.Kom., M.Cs.\r\n', '2', '311', 'MIF', '081 249 515 151'),
+('19830109 201803 1 001', 'Hermawan Arief Putranto, S.T., M.T.', '3', '311', 'MIF', '081 252 465 655'),
 ('19830203 200604 1 003', 'Hendra Yufit Riskiawan, S.Kom., M.Cs.\r\n', '1', '311', 'MIF', '085 649 222 290'),
-('19860609 200812 2 004', 'Nanik Anita M. ,S.ST.,M.T.\r\n', '1', '311', 'MIF', '081 234 909 509');
+('19840625 201504 1 004', 'Bekti Maryuni S., S.Pd.,M.Kom.\r\n', '1', '311', 'TKK', '085 729 491 540'),
+('19851031 201803 1 001', 'Victor Phoa ST.,MCs.\r\n', '1', '311', 'TKK', '085 656 067 801'),
+('19851128 200812 1 002', 'Aji Seto Arfianto, S.ST., M.T.\r\n', '1', '311', 'TIF', '081 232 534 534'),
+('19860319 201403 1 001', 'Fendik Eko Purnomo, S.Pd.,M.T.\r\n', '1', '311', 'TKK', '085 730 672 884'),
+('19860609 200812 2 004', 'Nanik Anita M. ,S.ST.,M.T.\r\n', '1', '311', 'MIF', '081 234 909 509'),
+('19860802 201504 2 002', 'Ratih Ayuninghemi, S.ST., M.Kom.\r\n', '1', '311', 'TIF', '085 651 152 881'),
+('19880702 201610 1 001', 'Husin, S.Kom., M.MT.', '3', '311', 'MIF', '081 338 338 833'),
+('19890329 201503 1 001', 'Taufiq Rizaldi, S.ST.,M.T.', '3', '311', 'MIF', '081 332 010 455'),
+('19890710 201509 1 001', 'Ery Setiawan Julev Atmaji, S.Kom.,M.Cs.\r\n', '1', '311', 'TIF', '085 648 807 492'),
+('19900227 201803 2 001', 'Trismayanti Dwi P, S.Kom., M,Cs.\r\n', '1', '311', 'TIF', '085 859 184 555'),
+('19910315 201703 1 001', 'Syamsiar Kautsar, S.ST., M.T.\r\n', '1', '311', 'TKK', '081 217 161 711'),
+('19910429 201710 1 001', 'Faisal Lutfi Afriansyah, S.Kom., M.T.', '3', '311', 'MIF', '081 136 205 000'),
+('19911211 201803 1 001', 'Khafidurohman A., S.Pd., M.Eng.\r\n', '1', '311', 'TIF', '085 646 418 027'),
+('19920302 201803 2 001', 'Zilvanhisna Emka Fitri, S.T., M.T.\r\n', '1', '311', 'TIF', '081 336 959 394'),
+('19920528 201803 2 001', 'Bety Etikasari, S.Pd., M.Pd.\r\n', '1', '311', 'TIF', '085 233 975 628');
 
 -- --------------------------------------------------------
 
@@ -102,6 +131,17 @@ CREATE TABLE `kuota_dosen` (
 --
 
 CREATE TABLE `mahasiswa_bimbingan` (
+  `nim` varchar(9) DEFAULT NULL,
+  `nip` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mhs_bimbingan_sementara`
+--
+
+CREATE TABLE `mhs_bimbingan_sementara` (
   `nim` varchar(9) DEFAULT NULL,
   `nip` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -205,7 +245,7 @@ CREATE TABLE `usulan_ta_mhs` (
 --
 
 INSERT INTO `usulan_ta_mhs` (`id_usulan`, `nim`, `prodi`, `golongan`, `judul`, `pengerjaan`, `deskripsi`, `dosen_pembimbing`, `tgl_input`, `judul_dosen`) VALUES
-(1, 'e31160395', 'mif', 'a', 'ee', 'individu', 'ee', '19710408 200112 1 003', '2018-05-29', '');
+(2, 'e31160395', 'mif', 'a', 'judul tugas akhir', 'individu', 'ini deskripsi', '19710408 200112 1 003', '2018-06-25', 'tidak');
 
 --
 -- Indexes for dumped tables
@@ -247,6 +287,13 @@ ALTER TABLE `kuota_dosen`
 ALTER TABLE `mahasiswa_bimbingan`
   ADD KEY `nim` (`nim`),
   ADD KEY `nip` (`nip`);
+
+--
+-- Indexes for table `mhs_bimbingan_sementara`
+--
+ALTER TABLE `mhs_bimbingan_sementara`
+  ADD KEY `nip` (`nip`),
+  ADD KEY `nim` (`nim`);
 
 --
 -- Indexes for table `pendaftaran_proposal`
@@ -323,7 +370,7 @@ ALTER TABLE `usulan_judul_dosen`
 -- AUTO_INCREMENT for table `usulan_ta_mhs`
 --
 ALTER TABLE `usulan_ta_mhs`
-  MODIFY `id_usulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -347,6 +394,13 @@ ALTER TABLE `kuota_dosen`
 ALTER TABLE `mahasiswa_bimbingan`
   ADD CONSTRAINT `mahasiswa_bimbingan_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`),
   ADD CONSTRAINT `mahasiswa_bimbingan_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`);
+
+--
+-- Constraints for table `mhs_bimbingan_sementara`
+--
+ALTER TABLE `mhs_bimbingan_sementara`
+  ADD CONSTRAINT `mhs_bimbingan_sementara_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`),
+  ADD CONSTRAINT `mhs_bimbingan_sementara_ibfk_2` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`);
 
 --
 -- Constraints for table `pendaftaran_proposal`
