@@ -57,9 +57,9 @@
                 <tr>
                   <th>No</th>
                   <th>NIM</th>
-                  <th>nama</th>
-                  <th>prodi</th>
-                  <th>golongan</th>
+                  <th>Nama</th>
+                  <th>Prodi</th>
+                  <th>Golongan</th>
                  
                 </tr>
                 <?php 
