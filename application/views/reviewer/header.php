@@ -88,7 +88,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="<?php echo base_url('reviewer/reviewjudul')?>">
             <i class="fa fa-dashboard"></i> <span>Review Judul Mahasiswa</span>   
         </li>
 
