@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2018 at 01:24 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Jun 25, 2018 at 10:17 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -59,7 +57,7 @@ INSERT INTO `data_dosen` (`nip`, `nama_dosen`, `hak_akses`, `password`, `prodi`,
 ('19710408 200112 1 003', 'Wahyu Kurnia Dewanto, S.Kom., M.T.\r\n', '1', '311', 'MIF', '081 252 449 69'),
 ('19711115 199802 1 001', 'Adi Heru Utomo, S.Kom., M.Kom.\r\n', '1', '311', 'MIF', '085 236 010 820'),
 ('19770929 200501 1 003', 'Didit Rahmat Hartadi S.Kom., M.T.\r\n', '1', '311', 'MIF', '085 234 609 168'),
-('19780819 200502 2 001', 'Ika Widiastuti, S.ST., M.T.\r\n', '1', '311', 'MIF', '081 249 794 912'),
+('19780819 200502 2 001', 'Ika Widiastuti, S.ST., M.T.\r\n', '3', '311', 'MIF', '081 249 794 912'),
 ('19800517 200812 1 002', 'Dwi Putro Sarwo S, S.Kom., M.Kom.\r\n', '2', '311', 'MIF', '085 641 500 007'),
 ('19810615 200604 1 002', 'Syamsul Arifin, S.Kom., M.Cs.\r\n', '2', '311', 'MIF', '081 249 515 151'),
 ('19830203 200604 1 003', 'Hendra Yufit Riskiawan, S.Kom., M.Cs.\r\n', '1', '311', 'MIF', '085 649 222 290'),
@@ -100,6 +98,17 @@ CREATE TABLE `kuota_dosen` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mahasiswa_bimbingan`
+--
+
+CREATE TABLE `mahasiswa_bimbingan` (
+  `nim` varchar(9) DEFAULT NULL,
+  `nip` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pendaftaran_proposal`
 --
 
@@ -119,19 +128,6 @@ INSERT INTO `pendaftaran_proposal` (`id_daftar`, `upload_file`, `nim`, `nip`, `j
 (1, 'Activity Diagram 1.pdf', 'e31160395', '19860609 200812 2 004', 'eeee'),
 (2, 'jurnal-bab2-ciframework.pdf', 'e31160395', '19711115 199802 1 001', 'ee'),
 (3, 'jurnal-bab2-ci.pdf', 'E31160395', '19711115 199802 1 001', 'fff');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `penentuan_dospem`
---
-
-CREATE TABLE `penentuan_dospem` (
-  `id_penentuan_dospem` int(11) NOT NULL,
-  `id_review_mhs` int(11) NOT NULL,
-  `dosen_pembimbing` varchar(16) NOT NULL,
-  `kuota` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -178,6 +174,13 @@ CREATE TABLE `usulan_judul_dosen` (
   `kuota` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `usulan_judul_dosen`
+--
+
+INSERT INTO `usulan_judul_dosen` (`id_judul_dosen`, `nip`, `judul_dosen`, `deskripsi`, `kuota`) VALUES
+(1, '19710408 200112 1 003', 'judul juduan', 'gatau', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -193,15 +196,16 @@ CREATE TABLE `usulan_ta_mhs` (
   `pengerjaan` varchar(10) NOT NULL,
   `deskripsi` text NOT NULL,
   `dosen_pembimbing` varchar(30) NOT NULL,
-  `tgl_input` date NOT NULL
+  `tgl_input` date NOT NULL,
+  `judul_dosen` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `usulan_ta_mhs`
 --
 
-INSERT INTO `usulan_ta_mhs` (`id_usulan`, `nim`, `prodi`, `golongan`, `judul`, `pengerjaan`, `deskripsi`, `dosen_pembimbing`, `tgl_input`) VALUES
-(1, 'e31160395', 'mif', 'a', 'ee', 'individu', 'ee', '19710408 200112 1 003', '2018-05-29');
+INSERT INTO `usulan_ta_mhs` (`id_usulan`, `nim`, `prodi`, `golongan`, `judul`, `pengerjaan`, `deskripsi`, `dosen_pembimbing`, `tgl_input`, `judul_dosen`) VALUES
+(1, 'e31160395', 'mif', 'a', 'ee', 'individu', 'ee', '19710408 200112 1 003', '2018-05-29', '');
 
 --
 -- Indexes for dumped tables
@@ -238,21 +242,19 @@ ALTER TABLE `kuota_dosen`
   ADD KEY `NIP` (`nip`);
 
 --
+-- Indexes for table `mahasiswa_bimbingan`
+--
+ALTER TABLE `mahasiswa_bimbingan`
+  ADD KEY `nim` (`nim`),
+  ADD KEY `nip` (`nip`);
+
+--
 -- Indexes for table `pendaftaran_proposal`
 --
 ALTER TABLE `pendaftaran_proposal`
   ADD PRIMARY KEY (`id_daftar`),
   ADD KEY `NIM` (`nim`),
   ADD KEY `NIP` (`nip`);
-
---
--- Indexes for table `penentuan_dospem`
---
-ALTER TABLE `penentuan_dospem`
-  ADD PRIMARY KEY (`id_penentuan_dospem`),
-  ADD KEY `Dosen_Pembimbing` (`dosen_pembimbing`),
-  ADD KEY `Id_review_mhs` (`id_review_mhs`),
-  ADD KEY `kuota` (`kuota`);
 
 --
 -- Indexes for table `review_ta`
@@ -297,43 +299,31 @@ ALTER TABLE `usulan_ta_mhs`
 --
 ALTER TABLE `ambil_judul_dosen`
   MODIFY `id_ambil` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `pendaftaran_proposal`
 --
 ALTER TABLE `pendaftaran_proposal`
   MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `penentuan_dospem`
---
-ALTER TABLE `penentuan_dospem`
-  MODIFY `id_penentuan_dospem` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `review_ta`
 --
 ALTER TABLE `review_ta`
   MODIFY `id_review_mhs` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `usulan_final`
 --
 ALTER TABLE `usulan_final`
   MODIFY `id_usulan_final` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `usulan_judul_dosen`
 --
 ALTER TABLE `usulan_judul_dosen`
-  MODIFY `id_judul_dosen` int(11) NOT NULL AUTO_INCREMENT;
-
+  MODIFY `id_judul_dosen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `usulan_ta_mhs`
 --
 ALTER TABLE `usulan_ta_mhs`
   MODIFY `id_usulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- Constraints for dumped tables
 --
@@ -352,18 +342,18 @@ ALTER TABLE `kuota_dosen`
   ADD CONSTRAINT `kuota_dosen_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
+-- Constraints for table `mahasiswa_bimbingan`
+--
+ALTER TABLE `mahasiswa_bimbingan`
+  ADD CONSTRAINT `mahasiswa_bimbingan_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`),
+  ADD CONSTRAINT `mahasiswa_bimbingan_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`);
+
+--
 -- Constraints for table `pendaftaran_proposal`
 --
 ALTER TABLE `pendaftaran_proposal`
   ADD CONSTRAINT `pendaftaran_proposal_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `pendaftaran_proposal_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `penentuan_dospem`
---
-ALTER TABLE `penentuan_dospem`
-  ADD CONSTRAINT `penentuan_dospem_ibfk_1` FOREIGN KEY (`id_review_mhs`) REFERENCES `review_ta` (`id_review_mhs`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `penentuan_dospem_ibfk_2` FOREIGN KEY (`dosen_pembimbing`) REFERENCES `usulan_final` (`dosen_pembimbing`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `review_ta`
@@ -392,7 +382,6 @@ ALTER TABLE `usulan_judul_dosen`
 ALTER TABLE `usulan_ta_mhs`
   ADD CONSTRAINT `usulan_ta_mhs_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `usulan_ta_mhs_ibfk_2` FOREIGN KEY (`dosen_pembimbing`) REFERENCES `data_dosen` (`nip`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
