@@ -56,7 +56,7 @@ class Kordinator extends CI_Controller {
 
 	public function inputjuduldosen(){
 		$data = array(
-			'uniqid'=>'juduldosen',
+			'uniqid'=>'cobajuduldosen',
 		);
 
 		$this->load->view('kordinator/content',$data);
