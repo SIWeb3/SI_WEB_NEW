@@ -19,7 +19,7 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Kuota Dosen</h3>
+          <h3 class="box-title"></h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -29,13 +29,13 @@
           </div>
         </div>
         <div class="box-body">
-		<?php if(isset($error)){ ?>
+            <?php if(isset($error)){ ?>
                     <div class="alert alert-danger alert-dismissible">
                       <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                       <?php echo $error; ?>
                     </div>
               <?php } ?>
-			  <?php if(isset($success)){ ?>
+        <?php if(isset($success)){ ?>
                     <div class="alert alert-info alert-dismissible">
                       <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                       <?php echo $success; ?>
@@ -67,7 +67,7 @@
                   <label for="kuota dosen">Kuota Dosen</label>
                   <input type="number" name="kuota" class="form-control" required="">
                 </div>
-				
+        
               </div>
 
               <div class="card-footer text-right">
@@ -80,30 +80,32 @@
       </div>
     </section>
         </div>
-        <!-- /.box-body 
+        <!-- /.box-body -->
         <div class="box-footer">
-          Footer
+          
         </div>
-        /.box-footer-->
+        <!-- /.box-footer-->
       </div>
-      <!-- /.box --></section>
+      <!-- /.box -->
 
-		<table class="table table-bordered " style="background-color:white;">
-			<tr>
-			<th>NIP</th>
-			<th>Nama</th>
-			<th>Kuota</th>
-			<th>Status</th>
-			</tr>
-			<?php foreach ($lihatkuota as $row){ ?>
-				<tr>
-				<td><?php echo $row->nip; ?></td>
-				<td><?php echo $row->nama_dosen; ?></td>
-				<td><?php echo $row->kuota; ?></td>
-				<td><a href="<?php echo base_url(); ?>Kordinator/editkuota/?nip=<?php echo $row->nip;?>">Edit</a> | <a href="<?php echo base_url(); ?>Kordinator/deletekuota/?nip=<?php echo $row->nip;?>">Hapus</a></td>
-				</tr>
+    </section>
+    <table class="table table-bordered " style="background-color:white;">
+      <tr>
+      <th>NIP</th>
+      <th>Nama</th>
+      <th>Kuota</th>
+      <th>Status</th>
+      </tr>
+      <?php foreach ($lihatkuota as $row){ ?>
+        <tr>
+        <td><?php echo $row->nip; ?></td>
+        <td><?php echo $row->nama_dosen; ?></td>
+        <td><?php echo $row->kuota; ?></td>
+        <td><a href="<?php echo base_url(); ?>Kordinator/editkuota/?nip=<?php echo $row->nip;?>">Edit</a> | <a href="<?php echo base_url(); ?>Kordinator/deletekuota/?nip=<?php echo $row->nip;?>">Hapus</a></td>
+        </tr>
             <?php }?>
-		</table>
-        <!-- /.content -->
+    </table>
+    
+    <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
