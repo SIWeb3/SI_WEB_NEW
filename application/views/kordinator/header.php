@@ -100,7 +100,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="<?php echo base_url('kordinator/index')?>">
+          <a href="<?php echo base_url('kordinator/kuota')?>">
             <i class="fa fa-dashboard"></i> <span>Daftar Data Kuota Dosen</span>  
         </li>
       </ul>

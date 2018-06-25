@@ -20,6 +20,20 @@ class Kordinator extends CI_Controller {
 				);
 				
 		$this->load->view('kordinator/header');
+		$this->load->view('kordinator/home',$data);
+		$this->load->view('kordinator/footer');
+	}
+
+		public function kuota()
+	{
+		$data = array(
+				'success' => $this->session->flashdata('success'),
+				'error' => $this->session->flashdata('error'),
+				'data_dosen'=>$this->Kuotadosen_model->datadosen(),
+				'lihatkuota'=>$this->Kuotadosen_model->lihatkuota(),		
+				);
+				
+		$this->load->view('kordinator/header');
 		$this->load->view('kordinator/kuotadosen',$data);
 		$this->load->view('kordinator/footer');
 	}
