@@ -67,6 +67,14 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="judul_dosen">Judul dari Dosen</label>
+                  <select name="judul_dosen" class="form-control" required="">
+                    <option value="ya">Ya</option>
+                    <option value="tidak">Tidak</option>
+                  </select>
+              </div>
+
+                <div class="form-group">
                   <label for="deskripsi">Deskripsi</label>
                   <textarea name="deskripsi" class="form-control" required=""></textarea> 
                 </div>

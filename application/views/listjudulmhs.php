@@ -41,6 +41,7 @@
                 <th scope="col">Pengerjaan</th>
                 <th scope="col">Deskripsi</th>
                 <th scope="col">Usulan Dosen Pembimbing</th>
+                <th scope="col">Judul Dosen</th>
               </tr>
             </thead>
             <tbody>
@@ -54,7 +55,8 @@
   <td><?php echo $data->judul; ?></td>
   <td><?php echo $data->pengerjaan; ?></td>
   <td><?php echo $data->deskripsi; ?></td>
-  <td width="50px"><?php echo $data->dosen_pembimbing; ?></td>
+  <td><?php echo $data->dosen_pembimbing; ?></td>
+  <td><?php echo $data->judul_dosen; ?></td>
 </tr>
                 
               <?php }

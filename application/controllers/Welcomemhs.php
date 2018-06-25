@@ -45,6 +45,7 @@ class Welcomemhs extends CI_Controller {
 				'pengerjaan'=> $this->input->post('pengerjaan'),
 				'deskripsi'=> $this->input->post('deskripsi'),
 				'dosen_pembimbing'=> $this->input->post('dosen_pembimbing'),
+				'judul_dosen' => $this->input->post('judul_dosen'),
 			);
 
 		$this->loginmhs_model->simpan('usulan_ta_mhs', $data);
