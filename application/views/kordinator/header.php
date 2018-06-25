@@ -79,6 +79,13 @@
           </a>
         </li>
 
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Penentuan Dospem Pembimbing</span>
+            
+          </a>
+        </li>
+
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Usulan Mahasiswa Bimbingan</span>   
@@ -87,6 +94,11 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Daftar Mahasiswa Bimbingan</span>
+          </a>
+        </li>
+         <li class="treeview">
+          <a href="<?php echo base_url('kordinator/daftardpm')?>">
+            <i class="fa fa-dashboard"></i> <span>Daftar Usulan Judul Mahasiswa</span>
           </a>
         </li>
         <li class="treeview">
@@ -103,6 +115,7 @@
           <a href="<?php echo base_url('kordinator/kuota')?>">
             <i class="fa fa-dashboard"></i> <span>Daftar Data Kuota Dosen</span>  
         </li>
+       
       </ul>
     </section>
     <!-- /.sidebar -->

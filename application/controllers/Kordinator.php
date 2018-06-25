@@ -13,6 +13,7 @@ class Kordinator extends CI_Controller {
 	public function index()
 	{
 		$data = array(
+			'uniqid' => 'kuotadosen',
 				'success' => $this->session->flashdata('success'),
 				'error' => $this->session->flashdata('error'),
 				'data_dosen'=>$this->Kuotadosen_model->datadosen(),
@@ -27,33 +28,35 @@ class Kordinator extends CI_Controller {
 	public function kuota()
 	{
 		$data = array(
+			'uniqid' => 'kuotadosen',
 				'success' => $this->session->flashdata('success'),
 				'error' => $this->session->flashdata('error'),
 				'data_dosen'=>$this->Kuotadosen_model->datadosen(),
 				'lihatkuota'=>$this->Kuotadosen_model->lihatkuota(),		
 				);
 				
-		$this->load->view('kordinator/header');
-		$this->load->view('kordinator/kuotadosen',$data);
-		$this->load->view('kordinator/footer');
+		//$this->load->view('kordinator/header');
+		$this->load->view('kordinator/content',$data);
+		//$this->load->view('kordinator/footer');
 	}
 	function isikuota(){
 		if (isset($_POST['kirim'])){
 			$data = $this->Kuotadosen_model->input(array (
+
 			'nip' => $this->input->post('nama_dosen'),
 			'kuota' => $this->input->post('kuota')));
 			$this->session->set_flashdata('success', 'Berhasil di tambahkan');
-			redirect(base_url('Kordinator'));
+			redirect(base_url('Kordinator/kuota'));
 		}else{
 			$this->session->set_flashdata('error', 'Error di tambahkan');
-			redirect(base_url('Kordinator'));
+			redirect(base_url('Kordinator/kuota'));
 		}
 	}
 
 
 	public function inputjuduldosen(){
 		$data = array(
-			'uniqid'=>'cobajuduldosen',
+			'uniqid'=>'juduldosen',
 		);
 
 		$this->load->view('kordinator/content',$data);
@@ -123,21 +126,39 @@ class Kordinator extends CI_Controller {
 		$x['inner'] = $this->Pengajuan_Model->tampil_dsn();
 		$this->load->view('kordinator/datadosen',$x);
 	}
+	public function daftardpm()
+	{
+		$data = array(
+			'uniqid' => 'cobatampilanlistdospem',
+			$this->load->model('Pengajuan_Model'),
+			'inner' => $this->Pengajuan_Model->tampil_dpm(),
+		);
+		$this->load->view('kordinator/content',$data);
+	}
+
+	function daftardospem(){
+		$this->load->model('Pengajuan_Model');
+		$x['inner'] = $this->Pengajuan_Model->tampil_dpm();
+		$this->load->view('kordinator/datadospem',$x);
+	}
+
+
 	function deletekuota(){
 		if(isset($_GET['nip'])){
 		$id=$_GET['nip'];
 		//echo"$id";
 		$this->Kuotadosen_model->delete_kuota($id);
 		$this->session->set_flashdata('success', 'Berhasil di hapus');
-		redirect(base_url('Kordinator'));
+		redirect(base_url('Kordinator/kuota'));
 		}
 	}
 	function editkuota(){
 		if(isset($_GET['nip'])){
 		$id=$_GET['nip'];
-		echo"$id";
+		//echo"$id";
 		
 		$data = array(
+			'uniqid' => 'edit_kuota',
 				'isi'=>$this->Kuotadosen_model->edit_kuota($id)
 				);
 		$this->load->view('kordinator/header');
@@ -152,7 +173,7 @@ class Kordinator extends CI_Controller {
 				'kuota' => $this->input->post('kuota')
             ), $id);
 			$this->session->set_flashdata('success', 'Berhasil di update');
-			redirect(base_url('Kordinator'));
+			redirect(base_url('Kordinator/kuota'));
 		}
 		else{
 			echo"gagal";
