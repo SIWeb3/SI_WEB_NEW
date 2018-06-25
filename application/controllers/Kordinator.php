@@ -24,7 +24,7 @@ class Kordinator extends CI_Controller {
 		$this->load->view('kordinator/footer');
 	}
 
-		public function kuota()
+	public function kuota()
 	{
 		$data = array(
 				'success' => $this->session->flashdata('success'),
@@ -76,7 +76,7 @@ class Kordinator extends CI_Controller {
 
 	function daftarusulanjudul(){
 		$data = array(
-			'uniqid' => 'daftarusulanjudul',
+			'uniqid' => 'cobadaftarusulanjudul',
 			$this->load->model('Pengajuan_Model'),
 			'inner' => $this->Pengajuan_Model->tampil_judul(),
 		);
@@ -96,7 +96,7 @@ class Kordinator extends CI_Controller {
 	public function daftarmhs()
 	{
 		$data = array(
-			'uniqid' => 'datamahasiswa',
+			'uniqid' => 'cobadaftarmahasiswa',
 			$this->load->model('Pengajuan_Model'),
 			'inner' => $this->Pengajuan_Model->tampil_mhs(),
 		);
@@ -112,7 +112,7 @@ class Kordinator extends CI_Controller {
 	public function daftardsn()
 	{
 		$data = array(
-			'uniqid' => 'datadosen',
+			'uniqid' => 'cobadaftardosen',
 			$this->load->model('Pengajuan_Model'),
 			'inner' => $this->Pengajuan_Model->tampil_dsn(),
 		);
