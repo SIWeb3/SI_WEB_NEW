@@ -103,6 +103,10 @@
           <a href="<?php echo base_url('kordinator/kuota')?>">
             <i class="fa fa-dashboard"></i> <span>Daftar Data Kuota Dosen</span>  
         </li>
+        <li class="treeview">
+          <a href="<?php echo base_url('kordinator/tglInput')?>">
+            <i class="fa fa-dashboard"></i> <span>Input Tanggal</span>  
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

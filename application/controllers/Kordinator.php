@@ -5,6 +5,7 @@ class Kordinator extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper(array('url'));
+		$this->load->helper('form');
 		$this->load->model('Kuotadosen_model');
 		$this->load->model('logindosen_model');
 		$this->load->model('koor_model');
@@ -162,6 +163,37 @@ class Kordinator extends CI_Controller {
 			echo"gagal";
 		}
 	  }
+
+	      public function listJadwal(){
+        $list = $this ->ModelKoordinator ->get_jadwal()->result();
+        $data = array(
+                "menu" => "MenuAdmin",
+                "panelbody" => "apps/koordinator/listJadwal",
+                "list" => $list
+        );
+        $this->load->view('panelbody', $data);
+    }
+    public function tglInput(){
+        $this->load->view('kordinator/header');
+		$this->load->view('kordinator/tgl_input');
+		$this->load->view('kordinator/footer');
+		
+    }
+    public function save_tglInput(){
+        $data = array(
+            'tgl_awal' => $this ->input ->post('tanggal_awal'),
+            'tgl_akhir' => $this ->input ->post('tanggal_akhir'),
+            'keterangan' => $this ->input ->post('ket')
+        );
+        $this ->db ->insert('tanggal',$data);
+        redirect('kordinator/listJadwal');
+    }
+    public function delJadwal(){
+        $id = $this ->uri ->segment(3);
+        $this ->db ->where_in('id',$id);
+        $this ->db ->delete('tanggal');
+        redirect('kordinator/listJadwal');
+    }
 
 
 }
