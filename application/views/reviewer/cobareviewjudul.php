@@ -29,55 +29,60 @@
           </div>
         </div>
         <div class="box-body">
-          
-      <div class="container">
+            <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <form action="<?php echo base_url('kordinator/forminputjuduldosen') ?>" method="post">
+            <form action="<?php echo base_url('reviewer/cobareviewjudul') ?>" method="post">
               <div class="card">
               <div class="card-header">
-                <h2>Form Usulan Judul Dosen</h2>
+                <h2>Form Daftar Usulan Judul Dosen
               </div>
 
-              <div class="card-body p-4">
+              <div class="card-body p-4" align="center">
 
-              
+              <table class="table table-bordered "  style="background-color:white; width: 100%;">
+                <tr>
+                  <th>ID REVIEW MAHASISWA</th>
+        <th>ID USULAN</th>
+        <th>JUDUL</th>
+        <th>DESKRIPSI</th>
+        <th>DOSEN PEMBIMBING</th>
+        <th>TGL INPUT</th>
+        <th>STATUS</th>
+        <th>DESKRIPSI REVIEW</th>
+        <th>OPSI</th>
+                </tr>
+                 <?php
+    foreach ($review as $b){
+        echo "<tr>
+            <td>$b->id_review_mhs</td>
+            <td>$b->id_usulan</td>
+            <td>$b->judul</td>
+            <td>$b->deskripsi</td>
+            <td>$b->dosen_pembimbing</td>
+            <td>$b->tgl_input</td>
+            <td>$b->status</td>
+            <td>$b->deskripsi_review</td>
+            <td>".anchor('reviewer/edit/'.$b->id_review_mhs,'EDIT')."</td>
+            </tr>";
+    }
     
-                 <div class="form-group">
-                  <label for="nim">NIP</label>
-                  <input type="text" name="nip" class="form-control" required="" value="<?php echo $this->session->userdata('nip')?>">
-                </div>
+    
+    ?>
+              </table>
+    
+        
+
+
+              </div>
+
               
-                <div class="form-group">
-                  <label for="juduldosen">Usulan Judul Tugas Akhir</label>
-                  <input type="text" name="juduldosen" class="form-control" required="">
-                </div>
-
-                <div class="form-group">
-                  <label for="deskripsi">Deskripsi</label>
-                  <textarea name="deskripsi" class="form-control" required=""></textarea> 
-                </div>
-
-                <div class="form-group">
-                  <label for="kuota">Kuota</label>
-                  <textarea name="kuota" class="form-control" required=""></textarea> 
-                </div>
-               
-
-
-
-              </div>
-
-              <div class="card-footer text-right">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
             </div>
           </form>
           </div>
         </div>
       </div>
     </section>
-    
         </div>
         <!-- /.box-body -->
         <div class="box-footer">

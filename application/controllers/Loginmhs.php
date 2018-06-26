@@ -108,5 +108,19 @@ class Loginmhs extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	function hasilreview(){
+		$cek=$this->loginmhs_model->hasilreview();
+		$data = array(
+			'success' => $this->session->flashdata('success'),
+			'error' => $this->session->flashdata('error'),
+			'cek' => $cek
+		);
+
+		
+		$this->load->view('headermhs');
+		$this->load->view('hasilreview',$data);
+		$this->load->view('footer');
+	}
+
 	
 }

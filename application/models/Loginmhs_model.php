@@ -51,6 +51,16 @@ class Loginmhs_model extends CI_Model {
 		
 	}
 
+	function hasilreview(){
+		$this->db->select('usulan_ta_mhs.nim, data_mahasiswa.nama, data_mahasiswa.prodi, data_mahasiswa.golongan, usulan_ta_mhs.judul, usulan_ta_mhs.pengerjaan, review_ta.status, review_ta.deskripsi_review');
+		$this->db->from('usulan_ta_mhs');
+		$this->db->join('data_mahasiswa', 'data_mahasiswa.nim=usulan_ta_mhs.nim');
+		$this->db->join('review_ta', 'review_ta.id_usulan=usulan_ta_mhs.id_usulan');
+
+		$data = $this->db->get(); //mengambil seluruh data
+    	return $data->result(); //mengembalikan data
+		
+	}
 
 		 }
 

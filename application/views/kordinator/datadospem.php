@@ -1,25 +1,15 @@
-
-  <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Sistem Informasi Pengajuan Judul Tugas Akhir
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li class="active"></li>
-      </ol>
-    </section>
 
     <!-- Main content -->
     <section class="content">
 
       <!-- Default box -->
       <div class="box">
+        
         <div class="box-header with-border">
-          <h3 class="box-title"></h3>
+          <h3 class="box-title">Usulan Judul Dosen</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -29,7 +19,7 @@
           </div>
         </div>
         <div class="box-body">
-         <?php if(isset($error)){ ?>
+          <?php if(isset($error)){ ?>
                     <div class="alert alert-danger alert-dismissible">
                       <a herf="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                       <?php echo $error; ?>
@@ -48,18 +38,22 @@
             <form action="<?php echo base_url('kordinator/formdaftarusulanjuduldosen') ?>" method="post">
               <div class="card">
               <div class="card-header">
-                <h2>Form Daftar Data Mahasiswa
+                <h2>Form Daftar Data Dosen
               </div>
 
               <div class="card-body p-4" align="center">
 
               <table class="table table-bordered "  style="background-color:white; width: 100%;">
                 <tr>
-                  <th>No</th>
+                  <th>ID USULAN</th>
                   <th>NIM</th>
-                  <th>Nama</th>
-                  <th>Prodi</th>
-                  <th>Golongan</th>
+                  <th>PRODI</th>
+                  <th>GOLONGAN</th>
+                  <th>JUDUL</th>
+                  <th>PENGERJAAN</th>
+                  <th>DESKRIPSI</th>
+                  <th>DOSEN PEMBIMBING</th>
+                  <th>TGL INPUT</th>
                  
                 </tr>
                 <?php 
@@ -68,10 +62,15 @@
                 ?>
                 <tr>
                   <td><?php echo $no++ ?></td>
+                  <td><?php echo $u->id_usulan ?></td>
                   <td><?php echo $u->nim ?></td>
-                  <td><?php echo $u->nama ?></td>
                   <td><?php echo $u->prodi ?></td> 
-                  <td><?php echo $u->golongan ?></td>        
+                  <td><?php echo $u->golongan ?></td>
+                  <td><?php echo $u->judul ?></td>
+                  <td><?php echo $u->pengerjaan ?></td> 
+                  <td><?php echo $u->deskripsi ?></td>
+                  <td><?php echo $u->dosen_pembimbing ?></td>
+                  <td><?php echo $u->tgl_input ?></td>        
                 </tr><?php }?>
               </table>
     
@@ -88,15 +87,16 @@
       </div>
     </section>
 
-        </div>
-        <!-- /.box-body -->
+
+
+     </div>
+        <!-- /.box-body 
         <div class="box-footer">
-          
+          Footer
         </div>
-        <!-- /.box-footer-->
+        /.box-footer-->
       </div>
       <!-- /.box -->
-
     </section>
     <!-- /.content -->
   </div>

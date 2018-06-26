@@ -57,7 +57,7 @@ class Kordinator extends CI_Controller {
 
 	public function inputjuduldosen(){
 		$data = array(
-			'uniqid'=>'juduldosen',
+			'uniqid'=>'cobajuduldosen',
 		);
 
 		$this->load->view('kordinator/content',$data);
@@ -127,6 +127,23 @@ class Kordinator extends CI_Controller {
 		$x['inner'] = $this->Pengajuan_Model->tampil_dsn();
 		$this->load->view('kordinator/datadosen',$x);
 	}
+	public function daftardpm()
+	{
+		$data = array(
+			'uniqid' => 'cobatampilanlistdospem',
+			$this->load->model('Pengajuan_Model'),
+			'inner' => $this->Pengajuan_Model->tampil_dpm(),
+		);
+		$this->load->view('kordinator/content',$data);
+	}
+
+	function daftardospem(){
+		$this->load->model('Pengajuan_Model');
+		$x['inner'] = $this->Pengajuan_Model->tampil_dpm();
+		$this->load->view('kordinator/datadospem',$x);
+	}
+
+
 	function deletekuota(){
 		if(isset($_GET['nip'])){
 		$id=$_GET['nip'];
