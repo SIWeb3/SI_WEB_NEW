@@ -87,6 +87,18 @@ class Dosen extends CI_Controller {
 		$this->load->view('dosen/usulantamhs',$x);
 	}
 
+	function pilihmhs($nim){
+		$nip = $this->session->userdata('nip');
+		$data = array (
+			'nim' =>$nim,
+			'nip'=>$nip
+	);
+		$this->db->insert('mhs_bimbingan_sementara',$data);
+		$this->db->query("UPDATE usulan_ta_mhs SET status_pilih='diterima' where nim='$nim'");
+		redirect(site_url('Dosen/usulanmhs1'));
+
+	}
+
 	function formdaftarusulanjuduldosen(){
 
 	}
