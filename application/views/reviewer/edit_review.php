@@ -77,7 +77,7 @@ foreach ($review1 as $b)
             $b->nip?>" >
           </div>
         --> 
-        <?php foreach ($review2 as $c) { ?>
+        <!--<?php foreach ($review2 as $c) { ?>
          <div class="form-group">
             <label for="STATUS">JUDUL</label>
               
@@ -92,7 +92,7 @@ foreach ($review1 as $b)
               <input type="text" name="status" class="form-control" disabled="true" value="<?php echo $d->deskripsi ?>">
               <?php }
               ?>
-          </div>
+          </div>-->
 
            <div class="form-group">
             <label for="STATUS">STATUS</label>

@@ -65,8 +65,8 @@ public function reviewjudul(){
 		$this->load->model("Reviewer_model");
 		$id_review_mhs=$this->session->userdata('$id_review_mhs');
 		$data['review1'] = $this->Reviewer_model->list_review($id_review_mhs);
-		$data['review2'] = $this->Reviewer_model->list($id_review_mhs);
-		$data['review3'] = $this->Reviewer_model->list1($id_review_mhs);
+		//$data['review2'] = $this->Reviewer_model->list($id_review_mhs);
+		//$data['review3'] = $this->Reviewer_model->list1($id_review_mhs);
 		$this->load->view('reviewer/edit_review',$data);
 		$this->load->view("reviewer/footer");			
 	}
