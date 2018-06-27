@@ -8,6 +8,7 @@ class Kordinator extends CI_Controller {
 		$this->load->model('Kuotadosen_model');
 		$this->load->model('logindosen_model');
 		$this->load->model('koor_model');
+		$this->load->model('Pengajuan_Model');
         
 	}
 	public function index()
@@ -53,10 +54,9 @@ class Kordinator extends CI_Controller {
 		}
 	}
 
-
 	public function inputjuduldosen(){
 		$data = array(
-			'uniqid'=>'cobajuduldosen',
+			'uniqid'=>'juduldosen',
 		);
 
 		$this->load->view('kordinator/content',$data);
@@ -180,8 +180,36 @@ class Kordinator extends CI_Controller {
 		}
 	  }
 
+	public function edit(){
+		$this->load->view("kordinator/header");
+		$this->load->model("Pengajuan_Model");
+		$nip=$this->session->userdata('$nip');
+		$data['inner1'] = $this->Pengajuan_Model->tampil_dsn($nip);
+		$this->load->view('kordinator/kordinator_edit',$data);
+		$this->load->view("kordinator/footer");			
+	}
+	/*public function edit_simpan(){
+	$nip=$this->input->post('nip');
+	$data['nama_dosen'] = $this->input->post('nama_dosen');
+    $data['hak_akses'] = $this->input->post('hak_akses');
+	$this->Pengajuan_Model->edit_simpan($nip, $data);
+	redirect(site_url('kordinator/daftardsn'));
+}*/
+	public function edit_simpan(){
+		if(isset($_POST['submit'])){
+			$nip = $this->input->post('nip');
+			$data = $this->Pengajuan_Model->edit_simpan(array(
+				'hak_akses' => $this->input->post('hak_akses')
+            ), $nip);
+			$this->session->set_flashdata('success', 'Berhasil di update');
+			redirect(base_url('Kordinator/daftardsn'));
+		}
+		else{
+			echo"gagal";
+	}
+
 
 }
-
+}
 /* End of file Dosen.php */
 /* Location: ./application/controllers/Dosen.php */

@@ -62,21 +62,24 @@
                   <th>Password</th>
                   <th>Prodi</th>
                   <th>No Hp</th>
+                  <th>Opsi</th>
                  
                 </tr>
                 <?php 
                 $no = 1;
                 foreach($inner as $u){ 
-                ?>
+                echo"
                 <tr>
-                  <td><?php echo $no++ ?></td>
-                  <td><?php echo $u->nip ?></td>
-                  <td><?php echo $u->nama_dosen ?></td>
-                  <td><?php echo $u->hak_akses ?></td> 
-                  <td><?php echo $u->password ?></td>
-                  <td><?php echo $u->prodi ?></td>
-                  <td><?php echo $u->no_hp ?></td>         
-                </tr><?php }?>
+                  <td>".$no++." </td>
+                  <td>$u->nip </td>
+                  <td>$u->nama_dosen </td>
+                  <td>$u->hak_akses </td> 
+                  <td>$u->password </td>
+                  <td>$u->prodi </td>
+                  <td>$u->no_hp </td>
+                  <td>".anchor('kordinator/edit/'.$u->nip,'EDIT')."</td>         
+                </tr>" ;
+              }?>
               </table>
     
         

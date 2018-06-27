@@ -38,4 +38,16 @@ class Pengajuan_Model extends CI_Model{
 	    $x = $this->db->get(); //mengambil seluruh data
 	    return $x->result(); //mengembalikan data
 	}
+
+	function kordinator_edit($nip){
+    $sql = sprintf("update data_dosen set nip='$this->nip',nama_dosen='$this->nama_dosen',hak_akses='$this->hak_akses'");
+    $this->db->query($sql);
+    }
+
+    function edit_simpan($data=array(),$nip){
+    $this->db->where('nip',$nip);
+    $this->db->update('data_dosen',$data);
+    }
+
+
 }

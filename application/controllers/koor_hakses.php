@@ -9,24 +9,63 @@ class koor_hakses extends CI_Controller{
         $data['r'] = $this->koor_model->list_review()->row_array();
         $this->load->view('tampilan_koor',$data);
         $this->load->view("footer");
+      
     }
 
-     function edit(){
-        $this->load->model('koor_model');
-        $nip = $this->uri->segment(4);
-        $data['product'] = $this->koor_model->product($nip)->row_array();
-        $this->load->view('reviewer_edit',$data);
+        public function hakakses()
+    {
+        $data = array(
+            'uniqid' => 'reviewer_edit',
+                'success' => $this->session->flashdata('success'),
+                'error' => $this->session->flashdata('error'),
+                'data_dosen'=>$this->koor_model->datadosen(),       
+                );
+                
+        //$this->load->view('kordinator/header');
+        $this->load->view('kordinator/content',$data);
+        //$this->load->view('kordinator/footer');
     }
-    function edit_simpan(){
-        $id         = $this->input->post('id');
-        $databarang = array(
-            'nip'   =>  $this->input->post('nip'),
-            'nama_dosen'   =>  $this->input->post('nama_dosen'),
-            'hak_akses'    =>  $this->input->post('hak_akses'),
-            'prodi'        =>  $this->input->post('prodi'));
-        $this->db->where('nip',$id);
-        $this->db->update('koor_hakses',$databarang);
-        redirect('koor_hakses');
+    function isihakakses(){
+        if (isset($_POST['kirim'])){
+            $data = $this->koor_model->input(array (
+
+            'nip' => $this->input->post('nama_dosen'),
+            'hakakses' => $this->input->post('hakakses')));
+            $this->session->set_flashdata('success', 'Berhasil di tambahkan');
+            redirect(base_url('Kordinator/'));
+        }else{
+            $this->session->set_flashdata('error', 'Error di tambahkan');
+            redirect(base_url('Kordinator/kuota'));
+        }
     }
+
+    function edithakakses(){
+        if(isset($_GET['nip'])){
+        $id=$_GET['nip'];
+        echo"$id";
+        
+        $data = array(
+            'uniqid' => 'reviewer_edit',
+                'isi'=>$this->koor_model->edit_hak($id)
+                );
+        $this->load->view('kordinator/header');
+        $this->load->view('kordinator/edit_hak',$data);
+        $this->load->view('kordinator/footer');
+        }
+    }
+    public function updatehakakses(){
+        if(isset($_POST['kirim'])){
+            $id = $this->input->post('nip');
+            $insert = $this->koor_model->update_hak(array(
+                'hak' => $this->input->post('hak')
+            ), $id);
+            $this->session->set_flashdata('success', 'Berhasil di update');
+            redirect(base_url('Kordinator'));
+        }
+        else{
+            echo"gagal";
+        }
+    }
+
 }
 ?>
