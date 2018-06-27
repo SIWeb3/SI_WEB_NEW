@@ -7,6 +7,7 @@ class Dosen extends CI_Controller {
 		parent::__construct();
 
 		$this->load->model('logindosen_model');
+		$this->load->model('Pengajuan_Model');
 	}
 
 
@@ -60,6 +61,23 @@ class Dosen extends CI_Controller {
 
 	function formdaftarusulanjuduldosen(){
 
+	}
+
+	public function dosbim()
+	{
+		$data = array(
+			'uniqid' => 'mahasiswabimbingan',
+				'success' => $this->session->flashdata('success'),
+				'error' => $this->session->flashdata('error'),
+				'data_dosen'=>$this->Pengajuan_Model->datadosen(),
+				'data_mahasiswa'=>$this->Pengajuan_Model->data_mahasiswa(),
+				'lihat'=>$this->Pengajuan_Model->lihatdospem(),	
+				//'isi_dospem'=>$this->Pengajuan_Model->input(),		
+				);
+				
+		//$this->load->view('kordinator/header');
+		$this->load->view('reviewer/content',$data);
+		//$this->load->view('kordinator/footer');
 	}
 
  }

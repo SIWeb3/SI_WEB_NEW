@@ -49,5 +49,23 @@ class Pengajuan_Model extends CI_Model{
     $this->db->update('data_dosen',$data);
     }
 
+    function datadosen(){
+	$query = $this->db->query("SELECT nip,nama_dosen FROM data_dosen");
+	return $query->result();
 
+	}
+    function data_mahasiswa(){
+	$query = $this->db->query("SELECT nim,nama FROM data_mahasiswa");
+	return $query->result();
+	}
+
+	function input($data = array()){
+	return $this->db->insert('mahasiswa_bimbingan',$data);
+		//return $this->db->update('tm_mahasiswa',$data);
+	}
+
+	function lihatdospem(){
+	$query = $this->db->query("SELECT mahasiswa_bimbingan.nip,data_dosen.nama_dosen, data_dosen.prodi, mahasiswa_bimbingan.nim, data_mahasiswa.nama, data_mahasiswa.prodi,data_mahasiswa.golongan FROM `mahasiswa_bimbingan` INNER JOIN data_dosen on data_dosen.nip=mahasiswa_bimbingan.nip INNER JOIN data_mahasiswa on data_mahasiswa.nim=mahasiswa_bimbingan.nim ");
+		return $query->result();
+	}
 }

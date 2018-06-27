@@ -19,7 +19,8 @@ class Kordinator extends CI_Controller {
 				'success' => $this->session->flashdata('success'),
 				'error' => $this->session->flashdata('error'),
 				'data_dosen'=>$this->Kuotadosen_model->datadosen(),
-				'lihatkuota'=>$this->Kuotadosen_model->lihatkuota(),		
+				'lihatkuota'=>$this->Kuotadosen_model->lihatkuota(),
+
 				);
 				
 		$this->load->view('kordinator/header');
@@ -41,6 +42,22 @@ class Kordinator extends CI_Controller {
 		$this->load->view('kordinator/content',$data);
 		//$this->load->view('kordinator/footer');
 	}
+
+	public function dosenbimbing()
+	{
+		$data = array(
+			'uniqid' => 'penentuandospem',
+				'success' => $this->session->flashdata('success'),
+				'error' => $this->session->flashdata('error'),
+				'data_dosen'=>$this->Pengajuan_Model->datadosen(),
+				'data_mahasiswa'=>$this->Pengajuan_Model->data_mahasiswa(),
+				'lihat'=>$this->Pengajuan_Model->lihatdospem(),		
+				);
+				
+		//$this->load->view('kordinator/header');
+		$this->load->view('kordinator/content',$data);
+		//$this->load->view('kordinator/footer');
+	}
 	function isikuota(){
 		if (isset($_POST['kirim'])){
 			$data = $this->Kuotadosen_model->input(array (
@@ -55,9 +72,58 @@ class Kordinator extends CI_Controller {
 		}
 	}
 
+		public function dospem()
+	{
+		$data = array(
+			'uniqid' => 'penentuandospem',
+				'success' => $this->session->flashdata('success'),
+				'error' => $this->session->flashdata('error'),
+				'data_dosen'=>$this->Pengajuan_Model->datadosen(),
+				'data_mahasiswa'=>$this->Pengajuan_Model->data_mahasiswa(),
+				'lihat'=>$this->Pengajuan_Model->lihatdospem(),	
+				//'isi_dospem'=>$this->Pengajuan_Model->input(),		
+				);
+				
+		//$this->load->view('kordinator/header');
+		$this->load->view('kordinator/content',$data);
+		//$this->load->view('kordinator/footer');
+	}
+
+	public function dosbim()
+	{
+		$data = array(
+			'uniqid' => 'mahasiswabimbingan',
+				'success' => $this->session->flashdata('success'),
+				'error' => $this->session->flashdata('error'),
+				'data_dosen'=>$this->Pengajuan_Model->datadosen(),
+				'data_mahasiswa'=>$this->Pengajuan_Model->data_mahasiswa(),
+				'lihat'=>$this->Pengajuan_Model->lihatdospem(),	
+				//'isi_dospem'=>$this->Pengajuan_Model->input(),		
+				);
+				
+		//$this->load->view('kordinator/header');
+		$this->load->view('kordinator/content',$data);
+		//$this->load->view('kordinator/footer');
+	}
+
+		function isi_dospem(){
+		if (isset($_POST['kirim'])){
+			$data = $this->Pengajuan_Model->input(array (
+
+			'nip' => $this->input->post('nama_dosen'),
+			'nim' => $this->input->post('nama_mahasiswa'),
+			));
+			$this->session->set_flashdata('success', 'Berhasil di tambahkan');
+			redirect(base_url('Kordinator/dospem'));
+		}else{
+			$this->session->set_flashdata('error', 'Error di tambahkan');
+			redirect(base_url('Kordinator/dospem'));
+		}
+	}
+
 	public function inputjuduldosen(){
 		$data = array(
-			'uniqid'=>'juduldosen',
+			'uniqid'=>'cobajuduldosen',
 		);
 
 		$this->load->view('kordinator/content',$data);
@@ -181,7 +247,7 @@ class Kordinator extends CI_Controller {
 		}
 	  }
 
-<<<<<<< HEAD
+
 	public function edit(){
 		$this->load->view("kordinator/header");
 		$this->load->model("Pengajuan_Model");
@@ -209,8 +275,9 @@ class Kordinator extends CI_Controller {
 		else{
 			echo"gagal";
 	}
-=======
-	      public function listJadwal(){
+}
+
+	    public function listJadwal(){
         $list = $this ->ModelKoordinator ->get_jadwal()->result();
         $data = array(
                 "menu" => "MenuAdmin",
@@ -221,7 +288,7 @@ class Kordinator extends CI_Controller {
     }
     public function tglInput(){
         $this->load->view('kordinator/header');
-		$this->load->view('kordinator/tgl_input');
+		$this->load->view('kordinator/cobatglinput');
 		$this->load->view('kordinator/footer');
 		
     }
@@ -240,10 +307,9 @@ class Kordinator extends CI_Controller {
         $this ->db ->delete('tanggal');
         redirect('kordinator/listJadwal');
     }
->>>>>>> f650678d11d9727c0234ba29add10bcd4bd57548
 
 
 }
-}
+
 /* End of file Dosen.php */
 /* Location: ./application/controllers/Dosen.php */

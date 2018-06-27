@@ -80,8 +80,8 @@
         </li>
 
          <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Penentuan Dospem Pembimbing</span>
+          <a href="<?php echo base_url('kordinator/dospem')?>">
+            <i class="fa fa-dashboard"></i> <span>Penentuan Dosen Pembimbing</span>
             
           </a>
         </li>
@@ -92,7 +92,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="<?php echo base_url('kordinator/dosbim')?>">
             <i class="fa fa-dashboard"></i> <span>Daftar Mahasiswa Bimbingan</span>
           </a>
         </li>
@@ -113,13 +113,16 @@
         </li>
         <li class="treeview">
           <a href="<?php echo base_url('kordinator/kuota')?>">
-            <i class="fa fa-dashboard"></i> <span>Daftar Data Kuota Dosen</span>  
+            <i class="fa fa-dashboard"></i> <span>Daftar Kuota Dosen</span>
+          </a>
         </li>
-
         <li class="treeview">
           <a href="<?php echo base_url('kordinator/tglInput')?>">
-            <i class="fa fa-dashboard"></i> <span>Input Tanggal</span>  
+            <i class="fa fa-dashboard"></i> <span>Input Tanggal</span>
         </li>
+        
+
+        
       </ul>
     </section>
     <!-- /.sidebar -->
