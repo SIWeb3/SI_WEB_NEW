@@ -76,7 +76,7 @@ class Dosen extends CI_Controller {
 				);
 				
 		//$this->load->view('kordinator/header');
-		$this->load->view('reviewer/content',$data);
+		$this->load->view('dosen/content',$data);
 		//$this->load->view('kordinator/footer');
 	}
 
