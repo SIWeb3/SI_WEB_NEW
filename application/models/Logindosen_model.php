@@ -3,9 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Logindosen_model extends CI_Model {
 
-	function cek($nip, $password){
+	function cek($nip, $password, $hak_akses){
 		$this->db->where('nip', $nip);
 		$this->db->where('password', $password);
+		$this->db->where('hak_akses', $hak_akses);
 		return $this->db->get('data_dosen');
 	}
 

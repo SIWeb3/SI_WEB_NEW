@@ -63,6 +63,50 @@ class Dosen extends CI_Controller {
 
 	}
 
+function usulanmhs1(){
+		/*$data = array(
+			'uniqid' => 'usulantamhs',
+			// $this->load->model('usulanmahasiswa_model'),
+			// 'inner' => $this->usulanmahasiswa_model->tampil_usulan($this->session->userdata('nip')),
+			// $this->load->view('dosen/usulantamhs'),
+		);*/
+		$this->load->model('usulanmahasiswa_model');
+		$nip=$this->session->userdata('nip');
+		$data = array(
+			'uniqid' => 'usulantamhs',
+			$this->load->model('Pengajuan_Model'),
+			'inner' => $this->usulanmahasiswa_model->tampil_usulan($nip),
+		);
+			/*$this->load->view('dosen/header');
+			$this->load->model('usulanmahasiswa_model');
+			$nip=$this->session->userdata('nip');
+			$data['inner']= $this->usulanmahasiswa_model->tampil_usulan($nip);
+			$this->load->view('dosen/usulantamhs',$data);
+			$this->load->view('dosen/footer');*/
+			$this->load->view('dosen/content',$data);
+	}
+
+	function usulan(){
+		$x['inner'] = $this->usulanmahasiswa_model->tampil_usulan();
+		$this->load->view('dosen/usulantamhs',$x);
+	}
+
+	function formdaftarusulanmahasiswa(){
+
+	}
+
+	function pilihmhs($nim){
+		//$nim = $this->input->post('nim'); // deklarasi id_transaksi sekaligus nangkep inputan data yang udah disubmit
+        $nip = $this->session->userdata('nip'); //sama kayak diatas
+        $data = array( //array yang buat masukin data
+                'nim'=>$nim, // yang ditangkep dimasukin
+                'nip'=>$nip //yang ditangkep dimasukin
+                );
+        $this->db->insert('mhs_bimbingan_sementara',$data);
+        $this->db->query("UPDATE usulan_ta_mhs SET status_pilih='diterima' where nim='$nim'");
+		redirect(site_url('Dosen/usulanmhs1'));
+	}
+
 	public function dosbim()
 	{
 		$data = array(

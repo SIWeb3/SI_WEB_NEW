@@ -78,7 +78,7 @@
           </a>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="<?php echo base_url('dosen/usulanmhs1')?>">
             <i class="fa fa-dashboard"></i> <span>Usulan Mahasiswa Bimbingan</span>   
           </a>
         </li>

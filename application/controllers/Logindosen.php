@@ -27,15 +27,25 @@ class Logindosen extends CI_Controller {
 
 		$nip = $this->input->post('nip');
 		$password = $this->input->post('password');
+		$hak_akses = $this->input->post('hak_akses');
 
-		$cek = $this->logindosen_model->cek($nip, $password);
+		$cek = $this->logindosen_model->cek($nip, $password, $hak_akses);
 		if($cek->num_rows() == 1)
 		{
 			foreach($cek->result() as $data){
 				$sess_data['nip'] = $data->nip;
+				$sess_data['password'] = $data->password;
 				$sess_data['hak_akses'] = $data->hak_akses;
+				$sess_data['nim'] = $data->nim;
 				$this->session->set_userdata($sess_data);
+				$this->session->set_userdata($nip);
+				$this->session->set_userdata($password);
+				$this->session->set_userdata($hak_akses);
+				$this->session->set_userdata($nim);
+
+
 			}
+
 			if($this->session->userdata('hak_akses') == '1')
 			{
 				redirect('dosen/index');
