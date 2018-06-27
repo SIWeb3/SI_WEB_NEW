@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2018 at 10:04 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.2
+-- Generation Time: Jun 27, 2018 at 01:58 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -146,6 +148,15 @@ CREATE TABLE `mhs_bimbingan_sementara` (
   `nip` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `mhs_bimbingan_sementara`
+--
+
+INSERT INTO `mhs_bimbingan_sementara` (`nim`, `nip`) VALUES
+(NULL, NULL),
+(NULL, NULL),
+('e31160395', '19710408 200112 1 003');
+
 -- --------------------------------------------------------
 
 --
@@ -188,20 +199,7 @@ CREATE TABLE `review_ta` (
 --
 
 INSERT INTO `review_ta` (`id_review_mhs`, `id_usulan`, `nip`, `status`, `deskripsi_review`) VALUES
-(1, 2, '19800517 200812 1 002', 'diterima', 'sudah good');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tanggal`
---
-
-CREATE TABLE `tanggal` (
-  `id` int(11) NOT NULL,
-  `Tgl_awal` date NOT NULL,
-  `Tgl_akhir` date NOT NULL,
-  `keterangan` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(1, 2, '19710408 200112 1 003', 'diterima', 'perbaiki');
 
 -- --------------------------------------------------------
 
@@ -257,15 +255,17 @@ CREATE TABLE `usulan_ta_mhs` (
   `deskripsi` text NOT NULL,
   `dosen_pembimbing` varchar(30) NOT NULL,
   `tgl_input` date NOT NULL,
-  `judul_dosen` varchar(30) NOT NULL
+  `judul_dosen` varchar(30) NOT NULL,
+  `status_pilih` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `usulan_ta_mhs`
 --
 
-INSERT INTO `usulan_ta_mhs` (`id_usulan`, `nim`, `prodi`, `golongan`, `judul`, `pengerjaan`, `deskripsi`, `dosen_pembimbing`, `tgl_input`, `judul_dosen`) VALUES
-(2, 'e31160395', 'mif', 'a', 'judul tugas akhir', 'individu', 'ini deskripsi', '19710408 200112 1 003', '2018-06-25', 'tidak');
+INSERT INTO `usulan_ta_mhs` (`id_usulan`, `nim`, `prodi`, `golongan`, `judul`, `pengerjaan`, `deskripsi`, `dosen_pembimbing`, `tgl_input`, `judul_dosen`, `status_pilih`) VALUES
+(2, 'e31160395', 'mif', 'a', 'judul tugas akhir', 'individu', 'ini deskripsi', '19710408 200112 1 003', '2018-06-25', 'tidak', 'diterima'),
+(3, 'e31160395', 'mif', 'a', 'ini dia', 'individu', 'jj', '19700831 199803 1 001', '2018-12-04', 'ya', '');
 
 --
 -- Indexes for dumped tables
@@ -332,12 +332,6 @@ ALTER TABLE `review_ta`
   ADD KEY `NIP` (`nip`);
 
 --
--- Indexes for table `tanggal`
---
-ALTER TABLE `tanggal`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `usulan_final`
 --
 ALTER TABLE `usulan_final`
@@ -372,36 +366,37 @@ ALTER TABLE `usulan_ta_mhs`
 --
 ALTER TABLE `ambil_judul_dosen`
   MODIFY `id_ambil` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `pendaftaran_proposal`
 --
 ALTER TABLE `pendaftaran_proposal`
   MODIFY `id_daftar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `review_ta`
 --
 ALTER TABLE `review_ta`
   MODIFY `id_review_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `tanggal`
---
-ALTER TABLE `tanggal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `usulan_final`
 --
 ALTER TABLE `usulan_final`
   MODIFY `id_usulan_final` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `usulan_judul_dosen`
 --
 ALTER TABLE `usulan_judul_dosen`
   MODIFY `id_judul_dosen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `usulan_ta_mhs`
 --
 ALTER TABLE `usulan_ta_mhs`
-  MODIFY `id_usulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- Constraints for dumped tables
 --
@@ -467,6 +462,7 @@ ALTER TABLE `usulan_judul_dosen`
 ALTER TABLE `usulan_ta_mhs`
   ADD CONSTRAINT `usulan_ta_mhs_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `usulan_ta_mhs_ibfk_2` FOREIGN KEY (`dosen_pembimbing`) REFERENCES `data_dosen` (`nip`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
