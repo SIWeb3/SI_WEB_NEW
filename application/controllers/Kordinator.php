@@ -278,13 +278,16 @@ class Kordinator extends CI_Controller {
 }
 
 	    public function listJadwal(){
-        $list = $this ->ModelKoordinator ->get_jadwal()->result();
+	    $this->load->model('usulanmahasiswa_model');	
+        $list = $this ->usulanmahasiswa_model ->get_jadwal()->result();
         $data = array(
                 "menu" => "MenuAdmin",
                 "panelbody" => "apps/koordinator/listJadwal",
                 "list" => $list
         );
-        $this->load->view('panelbody', $data);
+        $this->load->view('kordinator/header');
+		$this->load->view('kordinator/listjadwal',$data);
+		$this->load->view('kordinator/footer');
     }
     public function tglInput(){
         $this->load->view('kordinator/header');

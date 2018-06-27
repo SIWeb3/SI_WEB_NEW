@@ -24,6 +24,19 @@ class Welcomemhs extends CI_Controller {
 	}
 
 	function formusulanjudul(){
+		$this->load->model('usulanmahasiswa_model');
+		$tgl_awal = $this ->usulanmahasiswa_model->get_jadwal_awal();
+        $tgl_akhir = $this ->usulanmahasiswa_model->get_jadwal_akhir();
+        
+        date_default_timezone_set('Asia/Jakarta');
+            $y = date("Y");
+            $m=date("m");
+            $d=date("d");
+            $akhir = explode('-',$tgl_akhir['Tgl_akhir']);
+            $awal = explode('-',$tgl_awal['Tgl_awal']);
+            
+            if(($y-$awal[0]==0 && $m-$awal[1]==0 && $d-$awal[2]>=0)&&($y-$akhir[0]==0 && $m-$akhir[1]==0 && $d-$akhir[2]<=0)){
+             
 		$data = array(
 			'success' => $this->session->flashdata('success'),
 			'error' => $this->session->flashdata('error'),
@@ -33,6 +46,13 @@ class Welcomemhs extends CI_Controller {
 		$this->load->view('headermhs');
 		$this->load->view('pengajuanjudul', $data);
 		$this->load->view('footer');
+		}
+		else{
+
+		$this->load->view('headermhs');
+
+		$this->load->view('footer');
+		}
 	}
 
 	function inputjudul(){
@@ -54,6 +74,7 @@ class Welcomemhs extends CI_Controller {
 	}
 
 	function formujianproposal(){
+		
 		$data = array(
 			'success' => $this->session->flashdata('success'),
 			'error' => $this->session->flashdata('error'),
@@ -130,5 +151,6 @@ class Welcomemhs extends CI_Controller {
 
 	
   }
+
 
 
