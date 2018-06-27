@@ -1,4 +1,4 @@
-
+1
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -61,15 +61,13 @@ foreach ($review1 as $b)
         ?>
 
            <div class="form-group">
-            <label for="ID REVIEW MAHASISWA">ID REVIEW MAHASISWA</label>
-              <input type="text" name="id_review_mhs"  class="form-control" value="
-             <?php echo $b->id_review_mhs ?>" >
+                          <input type="hidden" name="id_review_mhs"  class="form-control" value="<?php echo $b->id_review_mhs ?>" >
             </div>
 
            
            <div class="form-group">
             <label for="ID USULAN">ID USULAN</label>
-            <input type="text" name="id_usulan"  class="form-control" value="<?php echo
+            <input type="text" name="id_usulan"  class="form-control" disabled="true" value="<?php echo
             $b->id_usulan?>">
           </div>
       
@@ -83,24 +81,25 @@ foreach ($review1 as $b)
          <div class="form-group">
             <label for="STATUS">JUDUL</label>
               
-              <input type="text" name="status" class="form-control" value="<?php echo $c->judul ?>">
+              <input type="text" name="status" class="form-control" disabled="true" value="<?php echo $c->judul ?>">
               <?php }
               ?>
           </div>
    <?php foreach ($review3 as $d) { ?>
          <div class="form-group">
-            <label for="STATUS">DESKRIPSI</label>
+            <label for="DESKRIPSI">DESKRIPSI</label>
               
-              <input type="text" name="status" class="form-control" value="<?php echo $d->deskripsi ?>">
+              <input type="text" name="status" class="form-control" disabled="true" value="<?php echo $d->deskripsi ?>">
               <?php }
               ?>
           </div>
 
            <div class="form-group">
             <label for="STATUS">STATUS</label>
-               <select name="status" class="form-control" required="">
-                    <option value="Tidak">Tidak</option>
-                    <option value="Ya">Ya</option>
+               <select id="status" name="status" class="form-control" required="">
+                    <option <?php if($b->status == "") echo 'selected' ?>value=""></option>
+                    <option <?php if($b->status == "ditolak") echo 'selected'?>value="ditolak">ditolak</option>
+                    <option <?php if($b->status == "diterima") echo 'selected' ?>value="diterima">diterima</option>
                </select>
               <!--<input type="text" name="status" class="form-control" value="<?php echo
             $b->status?>">-->
@@ -111,16 +110,7 @@ foreach ($review1 as $b)
             <input type="text-are8a" name="deskripsi_review" class="form-control" value="<?php  echo $b->deskripsi_review ?>"></td>        
 </div>
 
-
-
-
-
-
-
-
-
-
-              </div>
+             </div>
 
               <div class="card-footer text-right">
                 <button type="submit" class="btn btn-primary">Submit</button>
