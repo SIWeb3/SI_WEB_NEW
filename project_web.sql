@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2018 at 01:41 PM
+-- Generation Time: Jun 27, 2018 at 10:04 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -183,6 +183,26 @@ CREATE TABLE `review_ta` (
   `deskripsi_review` char(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `review_ta`
+--
+
+INSERT INTO `review_ta` (`id_review_mhs`, `id_usulan`, `nip`, `status`, `deskripsi_review`) VALUES
+(1, 2, '19800517 200812 1 002', 'diterima', 'sudah good');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tanggal`
+--
+
+CREATE TABLE `tanggal` (
+  `id` int(11) NOT NULL,
+  `Tgl_awal` date NOT NULL,
+  `Tgl_akhir` date NOT NULL,
+  `keterangan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- --------------------------------------------------------
 
 --
@@ -312,6 +332,12 @@ ALTER TABLE `review_ta`
   ADD KEY `NIP` (`nip`);
 
 --
+-- Indexes for table `tanggal`
+--
+ALTER TABLE `tanggal`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `usulan_final`
 --
 ALTER TABLE `usulan_final`
@@ -355,7 +381,12 @@ ALTER TABLE `pendaftaran_proposal`
 -- AUTO_INCREMENT for table `review_ta`
 --
 ALTER TABLE `review_ta`
-  MODIFY `id_review_mhs` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_review_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tanggal`
+--
+ALTER TABLE `tanggal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `usulan_final`
 --
