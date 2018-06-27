@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2018 at 01:58 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: 27 Jun 2018 pada 18.02
+-- Versi Server: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ambil_judul_dosen`
+-- Struktur dari tabel `ambil_judul_dosen`
 --
 
 CREATE TABLE `ambil_judul_dosen` (
@@ -39,7 +39,7 @@ CREATE TABLE `ambil_judul_dosen` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_dosen`
+-- Struktur dari tabel `data_dosen`
 --
 
 CREATE TABLE `data_dosen` (
@@ -52,7 +52,7 @@ CREATE TABLE `data_dosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `data_dosen`
+-- Dumping data untuk tabel `data_dosen`
 --
 
 INSERT INTO `data_dosen` (`nip`, `nama_dosen`, `hak_akses`, `password`, `prodi`, `no_hp`) VALUES
@@ -97,7 +97,7 @@ INSERT INTO `data_dosen` (`nip`, `nama_dosen`, `hak_akses`, `password`, `prodi`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_mahasiswa`
+-- Struktur dari tabel `data_mahasiswa`
 --
 
 CREATE TABLE `data_mahasiswa` (
@@ -109,7 +109,7 @@ CREATE TABLE `data_mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `data_mahasiswa`
+-- Dumping data untuk tabel `data_mahasiswa`
 --
 
 INSERT INTO `data_mahasiswa` (`nim`, `nama`, `prodi`, `golongan`, `password`) VALUES
@@ -118,7 +118,7 @@ INSERT INTO `data_mahasiswa` (`nim`, `nama`, `prodi`, `golongan`, `password`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kuota_dosen`
+-- Struktur dari tabel `kuota_dosen`
 --
 
 CREATE TABLE `kuota_dosen` (
@@ -129,7 +129,7 @@ CREATE TABLE `kuota_dosen` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mahasiswa_bimbingan`
+-- Struktur dari tabel `mahasiswa_bimbingan`
 --
 
 CREATE TABLE `mahasiswa_bimbingan` (
@@ -140,7 +140,7 @@ CREATE TABLE `mahasiswa_bimbingan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mhs_bimbingan_sementara`
+-- Struktur dari tabel `mhs_bimbingan_sementara`
 --
 
 CREATE TABLE `mhs_bimbingan_sementara` (
@@ -149,7 +149,7 @@ CREATE TABLE `mhs_bimbingan_sementara` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `mhs_bimbingan_sementara`
+-- Dumping data untuk tabel `mhs_bimbingan_sementara`
 --
 
 INSERT INTO `mhs_bimbingan_sementara` (`nim`, `nip`) VALUES
@@ -160,7 +160,7 @@ INSERT INTO `mhs_bimbingan_sementara` (`nim`, `nip`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pendaftaran_proposal`
+-- Struktur dari tabel `pendaftaran_proposal`
 --
 
 CREATE TABLE `pendaftaran_proposal` (
@@ -172,7 +172,7 @@ CREATE TABLE `pendaftaran_proposal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pendaftaran_proposal`
+-- Dumping data untuk tabel `pendaftaran_proposal`
 --
 
 INSERT INTO `pendaftaran_proposal` (`id_daftar`, `upload_file`, `nim`, `nip`, `judul`) VALUES
@@ -183,7 +183,7 @@ INSERT INTO `pendaftaran_proposal` (`id_daftar`, `upload_file`, `nim`, `nip`, `j
 -- --------------------------------------------------------
 
 --
--- Table structure for table `review_ta`
+-- Struktur dari tabel `review_ta`
 --
 
 CREATE TABLE `review_ta` (
@@ -195,7 +195,7 @@ CREATE TABLE `review_ta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `review_ta`
+-- Dumping data untuk tabel `review_ta`
 --
 
 INSERT INTO `review_ta` (`id_review_mhs`, `id_usulan`, `nip`, `status`, `deskripsi_review`) VALUES
@@ -204,7 +204,29 @@ INSERT INTO `review_ta` (`id_review_mhs`, `id_usulan`, `nip`, `status`, `deskrip
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usulan_final`
+-- Struktur dari tabel `tanggal`
+--
+
+CREATE TABLE `tanggal` (
+  `id` int(100) NOT NULL,
+  `Tgl_awal` date NOT NULL,
+  `Tgl_akhir` date NOT NULL,
+  `keterangan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tanggal`
+--
+
+INSERT INTO `tanggal` (`id`, `Tgl_awal`, `Tgl_akhir`, `keterangan`) VALUES
+(14, '2018-06-07', '2018-06-08', 'Awal'),
+(15, '2018-06-06', '2018-06-08', 'Awal'),
+(16, '2018-06-06', '2018-06-08', 'Awal');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `usulan_final`
 --
 
 CREATE TABLE `usulan_final` (
@@ -221,7 +243,7 @@ CREATE TABLE `usulan_final` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usulan_judul_dosen`
+-- Struktur dari tabel `usulan_judul_dosen`
 --
 
 CREATE TABLE `usulan_judul_dosen` (
@@ -233,7 +255,7 @@ CREATE TABLE `usulan_judul_dosen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usulan_judul_dosen`
+-- Dumping data untuk tabel `usulan_judul_dosen`
 --
 
 INSERT INTO `usulan_judul_dosen` (`id_judul_dosen`, `nip`, `judul_dosen`, `deskripsi`, `kuota`) VALUES
@@ -242,7 +264,7 @@ INSERT INTO `usulan_judul_dosen` (`id_judul_dosen`, `nip`, `judul_dosen`, `deskr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usulan_ta_mhs`
+-- Struktur dari tabel `usulan_ta_mhs`
 --
 
 CREATE TABLE `usulan_ta_mhs` (
@@ -260,7 +282,7 @@ CREATE TABLE `usulan_ta_mhs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `usulan_ta_mhs`
+-- Dumping data untuk tabel `usulan_ta_mhs`
 --
 
 INSERT INTO `usulan_ta_mhs` (`id_usulan`, `nim`, `prodi`, `golongan`, `judul`, `pengerjaan`, `deskripsi`, `dosen_pembimbing`, `tgl_input`, `judul_dosen`, `status_pilih`) VALUES
@@ -332,6 +354,12 @@ ALTER TABLE `review_ta`
   ADD KEY `NIP` (`nip`);
 
 --
+-- Indexes for table `tanggal`
+--
+ALTER TABLE `tanggal`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `usulan_final`
 --
 ALTER TABLE `usulan_final`
@@ -380,6 +408,12 @@ ALTER TABLE `review_ta`
   MODIFY `id_review_mhs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `tanggal`
+--
+ALTER TABLE `tanggal`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `usulan_final`
 --
 ALTER TABLE `usulan_final`
@@ -398,52 +432,52 @@ ALTER TABLE `usulan_ta_mhs`
   MODIFY `id_usulan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `ambil_judul_dosen`
+-- Ketidakleluasaan untuk tabel `ambil_judul_dosen`
 --
 ALTER TABLE `ambil_judul_dosen`
   ADD CONSTRAINT `ambil_judul_dosen_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `usulan_ta_mhs` (`nim`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `ambil_judul_dosen_ibfk_2` FOREIGN KEY (`id_judul_dosen`) REFERENCES `usulan_judul_dosen` (`id_judul_dosen`);
 
 --
--- Constraints for table `kuota_dosen`
+-- Ketidakleluasaan untuk tabel `kuota_dosen`
 --
 ALTER TABLE `kuota_dosen`
   ADD CONSTRAINT `kuota_dosen_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `mahasiswa_bimbingan`
+-- Ketidakleluasaan untuk tabel `mahasiswa_bimbingan`
 --
 ALTER TABLE `mahasiswa_bimbingan`
   ADD CONSTRAINT `mahasiswa_bimbingan_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`),
   ADD CONSTRAINT `mahasiswa_bimbingan_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`);
 
 --
--- Constraints for table `mhs_bimbingan_sementara`
+-- Ketidakleluasaan untuk tabel `mhs_bimbingan_sementara`
 --
 ALTER TABLE `mhs_bimbingan_sementara`
   ADD CONSTRAINT `mhs_bimbingan_sementara_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`),
   ADD CONSTRAINT `mhs_bimbingan_sementara_ibfk_2` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`);
 
 --
--- Constraints for table `pendaftaran_proposal`
+-- Ketidakleluasaan untuk tabel `pendaftaran_proposal`
 --
 ALTER TABLE `pendaftaran_proposal`
   ADD CONSTRAINT `pendaftaran_proposal_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `pendaftaran_proposal_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `review_ta`
+-- Ketidakleluasaan untuk tabel `review_ta`
 --
 ALTER TABLE `review_ta`
   ADD CONSTRAINT `review_ta_ibfk_1` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `review_ta_ibfk_2` FOREIGN KEY (`id_usulan`) REFERENCES `usulan_ta_mhs` (`id_usulan`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `usulan_final`
+-- Ketidakleluasaan untuk tabel `usulan_final`
 --
 ALTER TABLE `usulan_final`
   ADD CONSTRAINT `usulan_final_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `usulan_ta_mhs` (`nim`) ON DELETE NO ACTION ON UPDATE CASCADE,
@@ -451,13 +485,13 @@ ALTER TABLE `usulan_final`
   ADD CONSTRAINT `usulan_final_ibfk_3` FOREIGN KEY (`prodi`) REFERENCES `usulan_ta_mhs` (`prodi`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `usulan_judul_dosen`
+-- Ketidakleluasaan untuk tabel `usulan_judul_dosen`
 --
 ALTER TABLE `usulan_judul_dosen`
   ADD CONSTRAINT `usulan_judul_dosen_ibfk_2` FOREIGN KEY (`nip`) REFERENCES `data_dosen` (`nip`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `usulan_ta_mhs`
+-- Ketidakleluasaan untuk tabel `usulan_ta_mhs`
 --
 ALTER TABLE `usulan_ta_mhs`
   ADD CONSTRAINT `usulan_ta_mhs_ibfk_1` FOREIGN KEY (`nim`) REFERENCES `data_mahasiswa` (`nim`) ON DELETE NO ACTION ON UPDATE CASCADE,
