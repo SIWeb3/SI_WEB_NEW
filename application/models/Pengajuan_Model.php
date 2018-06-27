@@ -68,4 +68,11 @@ class Pengajuan_Model extends CI_Model{
 	$query = $this->db->query("SELECT mahasiswa_bimbingan.nip,data_dosen.nama_dosen, data_dosen.prodi, mahasiswa_bimbingan.nim, data_mahasiswa.nama, data_mahasiswa.prodi,data_mahasiswa.golongan FROM `mahasiswa_bimbingan` INNER JOIN data_dosen on data_dosen.nip=mahasiswa_bimbingan.nip INNER JOIN data_mahasiswa on data_mahasiswa.nim=mahasiswa_bimbingan.nim ");
 		return $query->result();
 	}
+
+		function tampil_usulan(){
+		$x=$this->db->query("SELECT usulan_ta_mhs.nim, data_mahasiswa.nama, usulan_ta_mhs.prodi, usulan_ta_mhs.golongan, usulan_ta_mhs.judul, usulan_ta_mhs.pengerjaan, usulan_ta_mhs.deskripsi, usulan_ta_mhs.tgl_input, usulan_ta_mhs.judul_dosen,usulan_ta_mhs.status_pilih FROM `usulan_ta_mhs` INNER JOIN data_mahasiswa on data_mahasiswa.nim=usulan_ta_mhs.nim INNER JOIN review_ta ON usulan_ta_mhs.id_usulan=review_ta.id_usulan where usulan_ta_mhs.dosen_pembimbing && review_ta.status='diterima'"); //mengambil semua data dari tabel data_users dan users
+	# code...		
+	     //mengambil seluruh data
+	    return $x->result(); //mengembalikan data
+	}
 }

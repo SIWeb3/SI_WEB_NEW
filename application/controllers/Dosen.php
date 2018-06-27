@@ -59,11 +59,7 @@ class Dosen extends CI_Controller {
 		$this->load->view('dosen/daftarusulanjudul',$x);
 	}
 
-	function formdaftarusulanjuduldosen(){
-
-	}
-
-function usulanmhs1(){
+	function usulanmhs1(){
 		/*$data = array(
 			'uniqid' => 'usulantamhs',
 			// $this->load->model('usulanmahasiswa_model'),
@@ -91,20 +87,8 @@ function usulanmhs1(){
 		$this->load->view('dosen/usulantamhs',$x);
 	}
 
-	function formdaftarusulanmahasiswa(){
+	function formdaftarusulanjuduldosen(){
 
-	}
-
-	function pilihmhs($nim){
-		//$nim = $this->input->post('nim'); // deklarasi id_transaksi sekaligus nangkep inputan data yang udah disubmit
-        $nip = $this->session->userdata('nip'); //sama kayak diatas
-        $data = array( //array yang buat masukin data
-                'nim'=>$nim, // yang ditangkep dimasukin
-                'nip'=>$nip //yang ditangkep dimasukin
-                );
-        $this->db->insert('mhs_bimbingan_sementara',$data);
-        $this->db->query("UPDATE usulan_ta_mhs SET status_pilih='diterima' where nim='$nim'");
-		redirect(site_url('Dosen/usulanmhs1'));
 	}
 
 	public function dosbim()

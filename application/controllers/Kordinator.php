@@ -308,6 +308,33 @@ class Kordinator extends CI_Controller {
         redirect('kordinator/listJadwal');
     }
 
+    	function usulanmhs1(){
+		/*$data = array(
+			'uniqid' => 'usulantamhs',
+			// $this->load->model('usulanmahasiswa_model'),
+			// 'inner' => $this->usulanmahasiswa_model->tampil_usulan($this->session->userdata('nip')),
+			// $this->load->view('dosen/usulantamhs'),
+		);*/
+		$this->load->model('Pengajuan_Model');
+		$nip=$this->session->userdata('nip');
+		$data = array(
+			'uniqid' => 'usulantamhs',
+			$this->load->model('Pengajuan_Model'),
+			'inner' => $this->Pengajuan_Model->tampil_usulan($nip),
+		);
+			/*$this->load->view('dosen/header');
+			$this->load->model('usulanmahasiswa_model');
+			$nip=$this->session->userdata('nip');
+			$data['inner']= $this->usulanmahasiswa_model->tampil_usulan($nip);
+			$this->load->view('dosen/usulantamhs',$data);
+			$this->load->view('dosen/footer');*/
+			$this->load->view('kordinator/content',$data);
+	}
+
+	function usulan(){
+		$x['inner'] = $this->Pengajuan_Model->tampil_usulan();
+		$this->load->view('kordinator/usulantamhs',$x);
+	}
 
 }
 
