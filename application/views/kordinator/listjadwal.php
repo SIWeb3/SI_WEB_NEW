@@ -69,7 +69,7 @@
                             echo "Input Judul Tugas Akhir Final";
                         } ?></td>
                         <td><?php 
-                        echo anchor('Kordinator/editJadwal/'.$data->id,'Edit','id="btnTest" type="button" class="btn btn-warning btn-bordered waves-effect w-md waves-light"')."&nbsp;";
+                       
                         echo anchor('Kordinator/delJadwal/'.$data->id,'Hapus','id="btnTest" type="button" class="btn btn-danger btn-bordered waves-effect w-md waves-light"'); ?></td>
                     </tr>
                         <?php $no++; }?>
