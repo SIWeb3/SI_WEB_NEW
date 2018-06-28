@@ -52,7 +52,7 @@ class Welcomemhs extends CI_Controller {
 		else{
 
 		$this->load->view('headermhs');
-		$this->load->view('home1', $data);
+		$this->load->view('home1');
 		$this->load->view('footer');
 		}
 	}
