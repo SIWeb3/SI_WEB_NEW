@@ -27,6 +27,7 @@ class Welcomemhs extends CI_Controller {
 		$this->load->model('usulanmahasiswa_model');
 		$tgl_awal = $this ->usulanmahasiswa_model->get_jadwal_awal();
         $tgl_akhir = $this ->usulanmahasiswa_model->get_jadwal_akhir();
+
         
         date_default_timezone_set('Asia/Jakarta');
             $y = date("Y");
@@ -41,6 +42,7 @@ class Welcomemhs extends CI_Controller {
 			'success' => $this->session->flashdata('success'),
 			'error' => $this->session->flashdata('error'),
 			'data_dosen' => $this->loginmhs_model->get_dosen(),
+			
 		);
 
 		$this->load->view('headermhs');
@@ -50,7 +52,7 @@ class Welcomemhs extends CI_Controller {
 		else{
 
 		$this->load->view('headermhs');
-
+		$this->load->view('home1');
 		$this->load->view('footer');
 		}
 	}
