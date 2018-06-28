@@ -35,7 +35,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <form action="<?php echo base_url('kordinator/edit_simpan') ?>" method="post"> 
+             
               <div class="card">
               <div class="card-header">
                 <h2>Form Edit Hak Akses Dosen</h2>
@@ -49,7 +49,7 @@
 foreach ($inner1 as $u)
 {
         ?>
-
+<form action="<?php echo base_url('kordinator/edit_simpan') ?>" method="post">
            <div class="form-group">
             <label for="NIP">NIP</label>
               <input type="text" name="nip"  class="form-control" value="
@@ -72,7 +72,7 @@ foreach ($inner1 as $u)
          <div class="form-group">
             <label for="HAK AKSES">HAK AKSES</label>
               
-              <input type="text" name="hak_akses" class="form-control" value="<?php echo $u->hak_akses ?>">
+              <input type="text" name="hak" class="form-control" value="<?php echo $u->hak_akses ?>">
               
               
           </div>
@@ -81,15 +81,15 @@ foreach ($inner1 as $u)
 
               <div class="card-footer text-right">
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-
-                    <?php
+</form>
+                  <?php
     }
 ?>
 </div>
 </table>
               </div>
             </div>
-          </form>
+          
           </div>
         </div>
       </div>

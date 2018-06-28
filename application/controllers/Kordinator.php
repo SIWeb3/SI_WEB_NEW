@@ -267,8 +267,10 @@ class Kordinator extends CI_Controller {
 		if(isset($_POST['submit'])){
 			$nip = $this->input->post('nip');
 			$data = $this->Pengajuan_Model->edit_simpan(array(
-				'hak_akses' => $this->input->post('hak_akses')
+				'hak_akses' => $this->input->post('hak')
             ), $nip);
+			//echo  $this->input->post('hak');
+			//echo  $this->input->post('nip');
 			$this->session->set_flashdata('success', 'Berhasil di update');
 			redirect(base_url('Kordinator/daftardsn'));
 		}

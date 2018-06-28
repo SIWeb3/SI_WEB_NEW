@@ -82,6 +82,7 @@ class Loginmhs extends CI_Controller {
 				'prodi'=> $this->input->post('prodi'),
 				'golongan'=> $this->input->post('golongan'),
 				'password'=> $this->input->post('password'),
+				
 			);
 
 			$this->loginmhs_model->simpan('data_mahasiswa', $data);
