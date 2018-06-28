@@ -40,7 +40,7 @@ class Welcomemhs extends CI_Controller {
              
 		$data = array(
 			'success' => $this->session->flashdata('success'),
-			'error' => $this->session->flashdata('error'),
+			'error' => $this->session->flashdata('error', 'Maaf belum waktunya input judul tugas akhir'),
 			'data_dosen' => $this->loginmhs_model->get_dosen(),
 			
 		);
@@ -52,7 +52,7 @@ class Welcomemhs extends CI_Controller {
 		else{
 
 		$this->load->view('headermhs');
-		$this->load->view('home1');
+		$this->load->view('home1', $data);
 		$this->load->view('footer');
 		}
 	}
