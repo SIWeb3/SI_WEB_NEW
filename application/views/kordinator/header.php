@@ -121,6 +121,22 @@
             <i class="fa fa-dashboard"></i> <span>Input Tanggal</span>
         </li>
         
+         <li class="treeview">
+          <a href="<?php echo base_url('kordinator/pdfusulan')?>">
+            <i class="fa fa-dashboard"></i> <span>Cetak Laporan Usulan Judul</span>
+          </a>
+        </li>
+         <li class="treeview">
+          <a href="<?php echo base_url('kordinator/pdfdosbim')?>">
+            <i class="fa fa-dashboard"></i> <span>Cetak Laporan Daftar Bimbingan</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="<?php echo base_url('kordinator/')?>">
+            <i class="fa fa-dashboard"></i> <span>Cetak Laporan Kartu Bimbingan</span>
+        </li>
+
+        
 
         
       </ul>
